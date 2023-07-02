@@ -35,7 +35,7 @@ export default function Home() {
         <title> VA </title>
         <meta name="description" content="Find works voice actors have in common" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+      
       </Head>
       <main className="main" className="flex-col-center justify-center h-screen">
         <h1 className="mb-4 text-4xl md:text-5xl text-slate-700"> Voice Actor Search </h1>
