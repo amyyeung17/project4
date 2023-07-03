@@ -2,6 +2,7 @@
 import AddButton from '@/shared/AddButton'
 
 const SelectTempItem = ({length, navFun}) => {
+  
   return (
     <>
       {[...Array(2 - length)].map((_, index) => {

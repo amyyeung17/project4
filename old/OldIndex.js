@@ -1,11 +1,33 @@
+import { useEffect, useContext, useState } from 'react'
+import { SessionContext } from '@/lib/getContext'
+import { apiHeaders }from '@/lib/getHeaders'
 import Head from 'next/head'
+import Script from 'next/script'
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
-
+import SearchInput from '@/components/search-input'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const [access_token, setToken] = useContext(SessionContext).token
+  const [request, setRequest] = useState(false)
+  const [input, setInput] = useState('')
+
+  useEffect(() => {
+    const getRequest = async () => {
+      try {
+        //const data = await fetch('/api/authenticate', apiHeaders({method: 'POST'})).then(r => r.json())
+        //setToken(data.access_token)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+
+    if (request) {
+      getRequest()
+    }
+  }, [request])
 
   return (
     <>

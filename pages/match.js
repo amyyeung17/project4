@@ -47,11 +47,9 @@ const Match = () => {
             </React.Fragment>
           ))
         :
-          <p className="text-status">
-            {status}
-          </p>
+          <p className="text-status"> {status} </p>
         }
-        <button className="btn-match" onClick={() => {setSelected([]); router.push('/select')}}> Start over </button>
+        <button className="btn-match mt-2" onClick={() => {setSelected([]); router.push('/select')}}> Start over </button>
       </div>
     </>
   )

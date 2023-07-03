@@ -29,9 +29,7 @@ const Actors = () => {
         setInfo(dataJson.staff)
         setLang(dataJson.staff.languageV2)
         setAll(dataJson.shared)
-
         //setShared(dataJson.shared)
-        console.log('first')
       } catch (err){
         console.log(err)
       }
@@ -46,6 +44,7 @@ const Actors = () => {
     setShared(getShared({lang: lang, vaData: all}))
   }, [lang])
 
+  
   const getSelected = () => {
     const {characters, ...cred} = info
     setSelected(s => [...s, cred])
@@ -63,9 +62,11 @@ const Actors = () => {
               <RemoveButton index={[...selected.map(s => s.id)].indexOf(parseInt(query.id))} setSelected={setSelected}/>
             }
           </ActorsInfo>
+          <p className="font-semibold mt-4 mb-2 pl-3 self-start max-sm:text-xl text-2xl"> Popular Roles </p>
           <ActorsGrid info={info.characters.nodes} text="Popular roles">
             <ActorsRoles />
           </ActorsGrid>
+          <p className="font-semibold mt-4 pl-3 self-start max-sm:text-xl text-2xl"> Similar Actors </p>
           <ActorsDropdown originalLang={info.languageV2} currentLang={lang} chooseLang={setLang}/>
           <ActorsGrid info={shared} text="Similar actors" >
             <ActorsSimilar />

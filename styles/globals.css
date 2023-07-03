@@ -43,19 +43,19 @@ button {
 }
 
 .btn--secondary-0 {
-  @apply border-transparent enabled:hover:text-slate-500 py-1 px-2 rounded-lg self-center text-slate-700
+  @apply border-transparent enabled:hover:text-slate-500 py-1 px-2 rounded-lg self-center text-slate-700 max-sm:text-sm
 }
 
 .btn-add {
-  @apply border-y-2 border-slate-700 h-fit btn--main my-1 rounded-lg px-5 py-1 text-sm 
+  @apply border-y-2 border-slate-700 h-fit btn--main my-1 rounded-lg px-5 py-1 max-sm:text-sm 
 }
 
 .btn-match {
-  @apply btn--main h-fit mt-6 mb-2  px-5 py-1.5 relative rounded-lg text-xl
+  @apply btn--main h-fit my-2 px-5 py-1.5 relative rounded-lg text-xl
 }
 
 .btn-profile {
-  @apply h-fit my-1 px-5 py-1.5 rounded-lg text-center text-sm
+  @apply h-fit my-1 px-5 py-1.5 rounded-lg text-center max-sm:text-sm 
 }
 
 /*Card divs*/
@@ -72,7 +72,7 @@ button {
 }
 
 .card-select {
-  @apply border-2 card--basic grow mb-2 shrink-0 sm:w-3/4;
+  @apply border-2 card--basic shadow h-fit mb-2 sm:w-3/4;
 }
 
 
@@ -82,8 +82,7 @@ button {
 }
 
 .media-grid {
-  @apply 
-  max-sm:grid max-sm:flex-wrap max-sm:grid-cols-2 max-sm:gap-x-4 max-sm:gap-y-2
+  @apply max-sm:grid max-sm:flex-wrap max-sm:grid-cols-2 max-sm:gap-x-4 max-sm:gap-y-2
   border-2 border-slate-100 bg-slate-200 flex flex-nowrap h-full overflow-x-auto relative mt-2 p-3 snap-x sm:space-x-4 w-full
   h-full rounded-lg;
 }
@@ -98,7 +97,7 @@ p {
 }
 
 .text-language {
-  @apply leading-snug font-normal mb-1 text-center text-zinc-700 
+  @apply leading-snug font-normal mb-1 text-center text-zinc-700 max-sm:text-sm
 }
 
 .text-status {

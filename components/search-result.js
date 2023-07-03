@@ -4,7 +4,8 @@ import ProfileButton from '@/shared/ProfileButton'
 import ProfileImage from '@/shared/ProfileImage'
 
 const SearchResult = ({info}) => {
-  const itemStyle = {card: 'card', lang: true, link: 'self-end text-sm', info: 'grow', name: 'text-xl', native: 'text-sm'}
+  const itemStyle = {card: 'card', lang: true, link: 'self-end text-sm max-sm:text-sm', info: 'grow', name: 'text-xl max-sm:text-base', native: 'text-sm max-sm:text-xs'}
+  
   return(
     <>
       <div className="card"> 

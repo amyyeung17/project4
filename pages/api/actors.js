@@ -20,7 +20,6 @@ export default async function actors(req, res) {
         } 
           
           const charas = await Promise.all(filteredItems.map((show) => throttled(() => getCharas({id: show.id}))))
-          console.log(responseData)
     
           //res.status(200).json({staff: testObject, shared: testArray})
 

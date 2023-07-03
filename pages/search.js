@@ -33,34 +33,32 @@ const Search = () => {
   }, [input])
 
  
-
-
   return(
     <>
       <div className="flex-col-center">
-      <SearchInput editInput={setInput} />
-      {input === '' && status !== 'Finished' ?
-        <p className="col-start-2 relative text-status"> Search your favorites to match or check out similar artists </p>
-      :
-        <>
-        {results.length !== 0 ?
-          <div className="grid-page mt-2">
-          {results.map((staff, num) => {
-            return(
-              <React.Fragment key={num}>
-                <SearchResult info={staff} />
-              </React.Fragment>
-            )
-          })}
-          </div>
+        <SearchInput editInput={setInput} />
+        {input === '' && status !== 'Finished' ?
+          <p className="col-start-2 relative text-status"> Search your favorites to match or check out similar artists </p>
         :
-          <p className="text-status">
-            {results.length === 0 && status === 'Finished' ? 'No results' : status }
-          </p>
+          <>
+          {results.length !== 0 ?
+            <div className="grid-page mt-2">
+              {results.map((staff, num) => {
+                return(
+                  <React.Fragment key={num}>
+                    <SearchResult info={staff} />
+                  </React.Fragment>
+                )
+              })}
+            </div>
+          :
+            <p className="text-status">
+              {results.length === 0 && status === 'Finished' ? 'No results' : status }
+            </p>
+          }
+          </>
+      
         }
-        </>
-     
-      }
        </div>
     </>
   )
