@@ -43,7 +43,6 @@ const Actors = () => {
   }, [router.isReady, query.id])
 
   useEffect(() => {
-    console.log(lang)
     setShared(getShared({lang: lang, vaData: all}))
   }, [lang])
 
