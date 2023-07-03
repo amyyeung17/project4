@@ -42,21 +42,24 @@ const Search = () => {
       {input === '' && status !== 'Finished' ?
         <p className="col-start-2 relative text-status"> Search your favorites to match or check out similar artists </p>
       :
-      <div className="grid-page mt-2">
+        <>
         {results.length !== 0 ?
-          results.map((staff, num) => {
+          <div className="grid-page mt-2">
+          {results.map((staff, num) => {
             return(
               <React.Fragment key={num}>
                 <SearchResult info={staff} />
               </React.Fragment>
             )
-          })
+          })}
+          </div>
         :
-          <p className="col-start-2 text-status">
+          <p className="text-status">
             {results.length === 0 && status === 'Finished' ? 'No results' : status }
           </p>
         }
-      </div>
+        </>
+     
       }
        </div>
     </>

@@ -30,6 +30,7 @@ module.exports = {
     },
   },
   plugins: [
+    require('@headlessui/tailwindcss')({ prefix: 'ui' }),
     require('@tailwindcss/typography'),
     require('@headlessui/tailwindcss'),
     require('@tailwindcss/line-clamp')

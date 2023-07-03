@@ -6,7 +6,7 @@ const ActorsInfo = ({children, info}) => {
 
   const charasFilter = useMemo(() => {
     const media = new Set()
-    const firstShow = info.characters.nodes.map(show => show.media.nodes[0])
+    const firstShow = info.characters.nodes.map(show => show.media.nodes.find(s => s.title.english !== null && s.title.native !== null))
 
     const filtered = firstShow.filter(fs => {
       if (!media.has(fs.id)) {

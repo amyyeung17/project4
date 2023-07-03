@@ -8,6 +8,7 @@ const ActorsGrid = ({children, info, text}) => {
   const [size, setSize] = useState(3)
 
   const showRoles = useMemo(() => {
+    console.log('memo')
     return ((info.length > size && display || info.length < size + 1) ? info : info.slice(0, size))
   }, [display, info, size])
 

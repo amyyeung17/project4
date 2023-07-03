@@ -2,15 +2,15 @@ import AniListLink from '@/shared/AniListLink'
 import ItemInfo from '@/shared/ItemInfo'
 import ProfileImage from '@/shared/ProfileImage'
 
-const ListItem = ({character, children, cardStyle = 'card', height = 'h-40', langState = false, nameStyle = 'text-lg', nativeStyle = 'text-sm', linkStyle, type, ...props}) => {
+const ListItem = ({character, children, height = 'h-40', itemStyle, type, ...props}) => {
  
   return(
     <>
-      <div className={cardStyle}>
+      <div className={itemStyle.card}>
         <ProfileImage siteUrl={character.image.medium} height={height}/>
-        <ItemInfo person={character} divStyle={cardStyle === 'card-result' ? 'h-fit mb-2' : 'grow'} langState={langState} nameStyle={nameStyle} nativeStyle={nativeStyle} /> 
+        <ItemInfo person={character} itemStyle={itemStyle} /> 
         {children}
-        <AniListLink siteUrl={typeof(props.url)!== 'undefined' ? props.url : character.siteUrl} linkStyle={linkStyle}/>
+        <AniListLink siteUrl={typeof(props.url)!== 'undefined' ? props.url : character.siteUrl} linkStyle={itemStyle.link}/>
       </div>
     </>
   )

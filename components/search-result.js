@@ -4,12 +4,12 @@ import ProfileButton from '@/shared/ProfileButton'
 import ProfileImage from '@/shared/ProfileImage'
 
 const SearchResult = ({info}) => {
-  
+  const itemStyle = {card: 'card', lang: true, link: 'self-end text-sm', info: 'grow', name: 'text-xl', native: 'text-sm'}
   return(
     <>
-      <div className="card--basic shadow"> 
+      <div className="card"> 
         <ProfileImage siteUrl={info.image.medium} />
-        <ItemInfo langState nameStyle="text-xl" person={info} />
+        <ItemInfo itemStyle={itemStyle} person={info} />
         <ProfileButton id={info.id} buttonStyle="btn--main relative" />
       </div>
     </>

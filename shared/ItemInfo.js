@@ -1,13 +1,14 @@
 //7/1 - removed w-fit from text
-const ItemInfo = ({person, divStyle = 'grow', nameStyle, nativeStyle, langState}) => {
+const ItemInfo = ({person, itemStyle}) => {
+
   return(
     <>
-      <div className={`flex-col-center my-1 ${divStyle}`}> 
-        <p className={`font-medium leading-snug text-center text-jet ${nameStyle}`}> {person.name.full} </p>
+      <div className={`flex-col-center my-1 ${itemStyle.info}`}> 
+        <p className={`font-medium leading-snug text-center text-jet ${itemStyle.name}`}> {person.name.full} </p>
         {person.name.native !== null &&
-          <p className={`break-keep leading-snug text-zinc-500 ${nativeStyle}`}> ({person.name.native}) </p>
+          <p className={`break-keep leading-snug text-zinc-500 ${itemStyle.native}`}> ({person.name.native}) </p>
         }
-        {(person.languageV2 !== null && langState) &&
+        {(person.languageV2 !== null && itemStyle.lang) &&
           <p className="text-language"> {person.languageV2} </p>
         }
       </div>

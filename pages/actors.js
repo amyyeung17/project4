@@ -9,12 +9,14 @@ import ActorsInfo from '@/components/actors-info'
 import ActorsGrid from '@/components/actors-grid'
 import ActorsRoles from '@/components/actors-roles'
 import ActorsSimilar from '@/components/actors-similar'
-
+import ActorsDropdown from '@/components/actors-dropdown'
 
 const Actors = () => {
   const router = useRouter()
   const [info, setInfo] = useState({})
+  const [lang, setLang] = useState('')
   const [shared, setShared] = useState([])
+  const [all, setAll] = useState([])
   const [selected, setSelected] = useContext(SessionContext).choices
   const { query } = router
 
@@ -25,8 +27,11 @@ const Actors = () => {
         const data = await fetch('/api/actors', apiHeaders({method: 'POST', info: {query: query.id}}))
         const dataJson = await data.json()
         setInfo(dataJson.staff)
-        setShared(getShared({vaData: dataJson.shared}))
+        setLang(dataJson.staff.languageV2)
+        setAll(dataJson.shared)
+
         //setShared(dataJson.shared)
+        console.log('first')
       } catch (err){
         console.log(err)
       }
@@ -37,12 +42,16 @@ const Actors = () => {
     }
   }, [router.isReady, query.id])
 
+  useEffect(() => {
+    console.log(lang)
+    setShared(getShared({lang: lang, vaData: all}))
+  }, [lang])
+
   const getSelected = () => {
     const {characters, ...cred} = info
     setSelected(s => [...s, cred])
     router.push('/select')
   }
-
 
   return (
     <>
@@ -58,7 +67,8 @@ const Actors = () => {
           <ActorsGrid info={info.characters.nodes} text="Popular roles">
             <ActorsRoles />
           </ActorsGrid>
-          <ActorsGrid info={shared} text="Similar actors">
+          <ActorsDropdown originalLang={info.languageV2} currentLang={lang} chooseLang={setLang}/>
+          <ActorsGrid info={shared} text="Similar actors" >
             <ActorsSimilar />
           </ActorsGrid>
         </>

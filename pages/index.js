@@ -13,7 +13,7 @@ export default function Home() {
   const [access_token, setToken] = useContext(SessionContext).token
   const [request, setRequest] = useState(false)
   const [input, setInput] = useState('')
- 
+
   useEffect(() => {
     const getRequest = async () => {
       try {
