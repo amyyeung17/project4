@@ -27,7 +27,7 @@ const Match = () => {
       }
     }
     getMatches()
-  }, [])
+  })
 
   return(
     <>

@@ -35,7 +35,7 @@ const Actors = () => {
     if (router.isReady && typeof(query.id) !== 'undefined' && query.id !== '') {
       getActor()
     }
-  }, [router.isReady])
+  }, [router.isReady, query.id])
 
   const getSelected = () => {
     const {characters, ...cred} = info

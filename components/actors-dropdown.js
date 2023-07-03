@@ -2,15 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Listbox } from '@headlessui/react'
 
 const ActorsDropdown = ({currentLang, chooseLang}) => {
-  const languages = useRef([])
-  useEffect(() => {
-    const options = ['JAPANESE', 'ENGLISH', 'KOREAN', 'CHINESE', 'SPANISH', 'FRENCH']
-    const matchOption = options.findIndex(currentLang)
-    if (matchOptions) {
-
-    }
-  }, [])
-  const languages = [
+  const languages = useRef([
     { id: 0, language: currentLang },
     { id: 1, language: 'JAPANESE' },
     { id: 2, language: 'ENGLISH'},
@@ -18,7 +10,15 @@ const ActorsDropdown = ({currentLang, chooseLang}) => {
     { id: 4, language: 'CHINESE'},
     { id: 5, language: 'SPANISH'},
     { id: 6, language: 'FRENCH'}
-  ]
+  ])
+  useEffect(() => {
+    const options = ['JAPANESE', 'ENGLISH', 'KOREAN', 'CHINESE', 'SPANISH', 'FRENCH']
+    const matchOption = options.findIndex(currentLang)
+    if (matchOptions) {
+
+    }
+  }, [])
+
   return(
     <>
 

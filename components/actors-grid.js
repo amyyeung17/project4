@@ -9,7 +9,7 @@ const ActorsGrid = ({children, info, text}) => {
 
   const showRoles = useMemo(() => {
     return ((info.length > size && display || info.length < size + 1) ? info : info.slice(0, size))
-  }, [display, size])
+  }, [display, info, size])
 
   useEffect(() => {
     const debounceSize = _.debounce(() => {

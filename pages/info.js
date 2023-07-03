@@ -8,7 +8,7 @@ const Info = () => {
         <ul>
           <li> Clean up code and design, especially making things consistent - first iteration </li>
           <li> Consolidate parts of some of the larger components into separate components </li>
-          <li> Show more/less for info in actor's profile - DONE </li>
+          <li> Show more/less for info in actor&apos;s profile - DONE </li>
           <li> Add link for actor in profile - DONE </li>
           <li> Line-clamp - DONE</li>
           <li> Fix temporary heights for divs in select-tempItem - DONE </li>
@@ -48,7 +48,7 @@ const Info = () => {
           <li> Error-handling </li>
           <li> Adding trending artists in search page </li>
           <li> Work on features from Results section above </li>
-          <li> Prevent access to match page when conditions aren't met </li>
+          <li> Prevent access to match page when conditions aren&apos;t met </li>
         </ul>
       </div>
     </>
