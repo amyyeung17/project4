@@ -35,7 +35,7 @@ button {
 }
 
 .btn--main {
-  @apply bg-slate-700 hover:opacity-90 rounded-lg text-white 
+  @apply bg-slate-700 hover:opacity-90 rounded-lg hover:text-white text-white 
 }
 
 .btn--secondary {

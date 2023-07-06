@@ -10,7 +10,7 @@ const SelectItem = ({children, height = 'h-52', person}) => {
     <>
       <div className="flex-col-center max-sm:w-1/2 max-sm:shrink-0 grow"> 
         <ListItem character={person} height={height} itemStyle={itemStyle}>
-          <ProfileButton id={person.id} buttonStyle="btn--main px-3 py-2" />
+          <ProfileButton id={person.id} buttonStyle="btn--main" />
           <div className="grow"></div>
         </ListItem>
         {children}

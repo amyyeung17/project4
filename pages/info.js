@@ -49,6 +49,7 @@ const Info = () => {
           <li> Adding trending artists in search page </li>
           <li> Work on features from Results section above </li>
           <li> Prevent access to match page when conditions aren&apos;t met </li>
+          <li> Add additional sources: http://www.usagi.org/doi/seiyuu/</li>
         </ul>
       </div>
     </>
