@@ -1,56 +1,82 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState, useMemo, useRef } from 'react'
 import { useRouter } from 'next/router'
 import { apiHeaders }from '@/lib/getHeaders'
 import { SessionContext } from '@/lib/getContext'
-import SelectItem from '@/components/select-item'
-import MatchResult from '@/components/match-result'
+import MatchActors from '@/components/match-actors'
+import MatchSelected from '@/components/match-selected'
+import MatchShows from '@/components/match-shows'
+import Dropdown from '@/shared/Dropdown'
+import StatusText from '@/shared/StatusText'
+import { getActorsOrigin, getMatchShows }from '@/lib/getShows'
+import testObj from '@/lib/testObj'
 
 const Match = () => {
-  const [selected, setSelected] = useContext(SessionContext).choices
+  const [selected, _] = useContext(SessionContext).choices
+  const [searchType, setSearchType] = useContext(SessionContext).type
+  const [prevPath, setPrev] = useContext(SessionContext).prev
+  const [info, setInfo] = useState([])
   const [status, setStatus] = useState('')
   const [results, setResults] = useState([])
   const router = useRouter()
-
+  const type = searchType ? 'show' : 'actor'
+  const originalLang = useRef('')
+  
   useEffect(() => {
+    setPrev('/match')
+    if (selected[type].length !== 2) {
+      router.push('/select')
+    }
     const getMatches = async() => {
       try {
         setStatus('Loading...')
-        const data = await fetch('/api/match', apiHeaders({method: 'POST', info: {selected}}))
+        const data = await fetch('/api/match', apiHeaders({method: 'POST', info: {searchType, selected: selected[type]}}))
         const dataJson = await data.json()
-        setResults(dataJson)
-        if (dataJson.roles.length === 0) {
-          setStatus('No results')
+        if (searchType) {
+          setInfo(dataJson)
+          originalLang.current = getActorsOrigin({origin: dataJson.first.countryOfOrigin, chara: dataJson.first.characters})
+          const matchedShows = getMatchShows({lang: originalLang.current, info: dataJson})
+          setResults(matchedShows)
+          if (matchedShows.length === 0) {
+            setStatus('No results')
+          }
+        } else {
+          setResults(dataJson.roles)
+          if (dataJson.roles.length === 0) {
+            setStatus('No results')
+          }
         }
-        setStatus('Finished')
       } catch(err) {
-        console.log(error)
+        console.log(err)
       }
     }
     getMatches()
-  })
+  }, [])
+
 
   return(
     <>
       <div className="flex-col-center h-full mb-4 space-y-4"> 
-        <p className="text-center my-2 text-status"> Shared Shows and Roles </p>
-        <div className="flex-evenly h-full max-sm:gap-x-4 mt-2 mb-4">
-          {selected.length !== 0 && selected.map((s, index) => (
-            <React.Fragment key={s.id + 'item'}>
-              <SelectItem person={s} height="h-40" index={index} />
-            </React.Fragment>
-          ))}
-        </div>
-        {(typeof(results.roles) !== 'undefined' && results.roles.length !== 0) ?
-          results.roles.map((r) => (
-            <React.Fragment key={r.media.nodes.id}>
-              <MatchResult info={r}/>
+        <p className="text-center my-2 text-status"> Shared {searchType ? 'Voice Actors' : 'Shows'} and Roles {searchType ? 'in' : 'for'} </p>
+        <MatchSelected selected={selected} type={type} />
+        {(searchType && status !== 'Loading...') && 
+          <Dropdown originalLang={originalLang.current} chooseLang={(l) => setResults(getMatchShow({lang: l, info}))} />
+          }
+        {(typeof(results) !== 'undefined' && results.length !== 0) ?
+          results.map((r, index) => (
+            <React.Fragment key={r.id + '' + index}>
+              {type === 'actor' ? 
+                <MatchActors info={r}/>
+                :
+                <MatchShows info={r} />
+              }
             </React.Fragment>
           ))
         :
-          <p className="text-status"> {status} </p>
+          <StatusText status={status} />
         }
-        <button className="btn-match mt-2" onClick={() => {setSelected([]); router.push('/select')}}> Start over </button>
+         <button className="btn-match mt-2" onClick={() => {router.push('/')}}> Start over </button>
       </div>
+     
     </>
   )
 }

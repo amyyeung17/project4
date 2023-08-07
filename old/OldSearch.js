@@ -32,6 +32,12 @@ const Search = () => {
         const voiceActors = testSearch.filter(va => va.characters.nodes.length !== 0)
         setResults(voiceActors)
         setStatus('Finished')
+          //const actorData = await fetch('/api/search', apiHeaders({method: 'POST', info: {searchInput, searchType}}))
+          //const actorDataJson = await actorData.json()
+
+          //setShared(dataJson.shared)
+        //const voiceActors = actorDataJson.Page.staff.filter(va => va.characters.nodes.length !== 0)
+          //const voiceActors = testSearch.filter(va => va.characters.nodes.length !== 0)
       } catch (err) {
         console.log(err)
       }

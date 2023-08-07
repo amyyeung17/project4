@@ -5,7 +5,7 @@ const ShowButton = ({display, setDisplay, text = ''}) => {
 
   return(
     <>
-      <button className="btn--secondary-0" onClick={() => setDisplay(d => !d)}>
+      <button className="btn--secondary-0 " onClick={() => setDisplay(d => !d)}>
         {`Show ${display ? 'less' : 'more'} ${text}`} 
         <span className="mx-1"> </span>
         <Chevron direction={display}/>

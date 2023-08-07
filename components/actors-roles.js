@@ -12,7 +12,7 @@ const ActorsRoles = ({info}) => {
         return(
           <React.Fragment key={index}>
             <ListItem character={c} itemStyle={itemStyle} url={firstShow(c).siteUrl}> 
-              <Title show={firstShow(c)} titleStyle="a-title mt-1 text-sm max-sm:text-xs" />
+              <Title show={firstShow(c)} titleStyle="a-title text-center text-sm max-sm:text-xs" />
               <div className="grow"></div>
             </ListItem>
           </React.Fragment>

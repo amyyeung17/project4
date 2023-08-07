@@ -1,4 +1,4 @@
-const AddButton = ({text = 'Select to match', addFun, isDisabled = false}) => {
+const AddButton = ({text = 'Select', addFun, isDisabled = false}) => {
   return(
     <>
       <button className="btn-add" onClick={addFun} disabled={isDisabled}>  

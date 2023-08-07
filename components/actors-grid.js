@@ -1,8 +1,9 @@
 import React, { useMemo, useEffect, useState } from 'react'
 import ShowButton from '@/shared/ShowButton'
+import StatusText from '@/shared/StatusText'
 import { debounce } from 'lodash'
 
-const ActorsGrid = ({children, info, text}) => {
+const ActorsGrid = ({children, info}) => {
   const [display, setDisplay] = useState(false)
   const [size, setSize] = useState(3)
 
@@ -31,7 +32,7 @@ const ActorsGrid = ({children, info, text}) => {
           </div>
         </div>
         :
-        <p className="text-status"> No results </p>
+        <StatusText status="No results" />
       }
     </>
   )

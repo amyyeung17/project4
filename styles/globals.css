@@ -25,7 +25,7 @@ a {
 }
 
 .a-title {
-  @apply font-medium italic line-clamp-2 text-center text-slate-700 hover:underline w-fit
+  @apply italic line-clamp-2 text-slate-700 hover:underline w-fit
 }
 
 
@@ -38,6 +38,10 @@ button {
   @apply bg-slate-700 hover:opacity-90 rounded-lg hover:text-white text-white 
 }
 
+.btn--main-0 {
+  @apply border-2 border-slate-500 btn--main py-1 px-2
+}
+
 .btn--secondary {
   @apply bg-white border-2 border-slate-500 hover:bg-slate-100 py-1 px-2 rounded-lg text-slate-700 text-sm 
 }
@@ -47,7 +51,7 @@ button {
 }
 
 .btn-add {
-  @apply border-y-2 border-slate-700 h-fit btn--main my-1 rounded-lg px-5 py-1 max-sm:text-sm 
+  @apply border-y-2 border-slate-700 h-fit btn--main my-1 rounded-lg px-5 py-1 text-sm 
 }
 
 .btn-match {
@@ -55,16 +59,16 @@ button {
 }
 
 .btn-profile {
-  @apply h-fit my-1 px-5 py-1.5 rounded-lg text-center max-sm:text-sm 
+  @apply h-fit my-1 px-5 py-1.5 rounded-lg text-center text-sm 
 }
 
 /*Card divs*/
 .card--basic {
-  @apply bg-white flex-col-center h-full relative rounded-lg p-2 
+  @apply flex-col-center h-full relative rounded p-2 
 }
 
 .card {
-  @apply border-2 card--basic shadow shrink-0 snap-start;
+  @apply border-2 border-slate-50 bg-white card--basic shrink-0 snap-start;
 }
 
 .card-result {
@@ -72,7 +76,7 @@ button {
 }
 
 .card-select {
-  @apply border-2 card--basic shadow h-fit mb-2 sm:w-3/4;
+  @apply bg-white card--basic shadow h-fit mb-2 sm:w-3/4;
 }
 
 
@@ -91,6 +95,10 @@ button {
   @apply bg-white flex-col-center relative rounded-lg mb-1 shadow shrink-0 sm:w-1/3 md:w-1/4
 }
 
+.media-div {
+  @apply flex justify-evenly sm:grid-cols-3 sm:grid md:grid-cols-4 px-3 pt-2 pb-1 mb-1 w-full
+}
+
 /*Text*/
 p {
   @apply text-slate-700
@@ -100,15 +108,24 @@ p {
   @apply leading-snug font-normal mb-1 text-center text-zinc-700 max-sm:text-sm
 }
 
+.text-header {
+  @apply mt-6 m-2 relative text-3xl text-center 
+}
+
 .text-status {
-  @apply mt-4 mb-2 text-3xl text-center
+  @apply relative text-3xl text-center 
+}
+
+.text-font {
+  font-family: Lato; 
 }
 
 
-
+/*font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;*/
+/*Gill Sans, sans-serif, Trebuchet MS, sans-serif;*/
 * {
   box-sizing: border-box;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family:  Lato, Avenir, Gill Sans, Trebuchet MS;
   padding: 0;
   margin: 0;
 }

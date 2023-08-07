@@ -7,7 +7,7 @@ const Media = ({divStyle, height = 'h-32', show, titleStyle}) => {
   return(
     <>
       <div className={divStyle}> 
-        <ProfileImage siteUrl={show.coverImage.medium} height={height}/>
+        <ProfileImage siteUrl={show.coverImage.large} height={height}/>
         <Title show={show} titleStyle={titleStyle} />
       </div>
     </>

@@ -37,18 +37,27 @@ const Info = () => {
             <li> Prevent adding more than allowed options and can remove in search </li>
             <li> Updates grid size in actors page when window resizes to even out results </li>
           </ul>
+        </ul>
+        <ul>
           <li> 7/2 </li>
           <ul> 
             <li> Cleared up some redundant code </li>
             <li> Cleaned up some of the UX </li>
           </ul>
         </ul>
+        <ul>
+          <li> 7/27</li>
+          <ul> 
+            <li> Randomized title display in actors-info </li>
+            <li> Fixed error in getShared.js where actors of different languages were displayed from chosen </li>
+            <li> Implemented finding common roles between shows </li>
+            <li> Reverted UI in match.js page </li>
+          </ul>
+        </ul>
         <h3> Future goals </h3>
         <ul> 
-          <li> Error-handling </li>
+          <li> Error-handling, proper preventing access to match page  </li>
           <li> Adding trending artists in search page </li>
-          <li> Work on features from Results section above </li>
-          <li> Prevent access to match page when conditions aren&apos;t met </li>
           <li> Add additional sources: http://www.usagi.org/doi/seiyuu/</li>
         </ul>
       </div>

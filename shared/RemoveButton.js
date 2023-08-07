@@ -1,12 +1,13 @@
-const RemoveButton = ({text = 'Unselect for match', index, setSelected}) => {
+const RemoveButton = ({text = 'Unselect', index, type, setSelected}) => {
   
-  const removeItem = () => (
-    setSelected(s => (
-      s.length === 1 ?
-      []
-      :
-      (index === 0 ? [s[1]] : [s[0]])
-    )))
+  const removeItem = () => 
+    setSelected(s => ({...s, [type]: 
+      (s[type].length === 1 ?
+        []
+        :
+        (index === 0 ? [s[type][1]] : [s[type][0]])
+      )
+    }))
 
   return(
     <>
