@@ -10,7 +10,7 @@ export default function Home() {
   useEffect(() => {
     setSelected({actor: [], show: []})
     setPrev('')
-  }, [])
+  })
 
   return (
     <>

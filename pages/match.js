@@ -57,7 +57,7 @@ const Match = () => {
     <>
       <div className="flex-col-center h-full mb-4 space-y-4"> 
         <p className="text-center my-2 text-status"> Shared {searchType ? 'Voice Actors' : 'Shows'} and Roles {searchType ? 'in' : 'for'} </p>
-        <MatchSelected selected={selected} type={type} />
+        {selected[type].length === 2 && <MatchSelected selected={selected} type={type} /> }
         {(searchType && status !== 'Loading...') && 
           <Dropdown originalLang={originalLang.current} chooseLang={(l) => setResults(getMatchShow({lang: l, info}))} />
           }
