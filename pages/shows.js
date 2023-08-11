@@ -20,7 +20,7 @@ const Shows = () => {
     const getShow = async() => {
       try {
         setStatus('Loading...')
-        const data = await fetch('/api/shows', apiHeaders({method: 'POST', info: {query: query.id}}))
+        const data = await fetch('/project4/api/shows', apiHeaders({method: 'POST', info: {query: query.id}}))
         const dataJson = await data.json()
         setInfo(dataJson)
         originalLang.current = getActorsOrigin({origin: dataJson.countryOfOrigin, charaData: dataJson.characters})

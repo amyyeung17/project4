@@ -29,7 +29,7 @@ const Match = () => {
     const getMatches = async() => {
       try {
         setStatus('Loading...')
-        const data = await fetch('/api/match', apiHeaders({method: 'POST', info: {searchType, selected: selected[type]}}))
+        const data = await fetch('/project4/api/match', apiHeaders({method: 'POST', info: {searchType, selected: selected[type]}}))
         const dataJson = await data.json()
         if (searchType) {
           setInfo(dataJson)

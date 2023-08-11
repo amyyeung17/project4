@@ -21,7 +21,7 @@ const Actors = () => {
     const getActor = async() => {
       try {
         setStatus('Loading...')
-        const data = await fetch('/api/actors', apiHeaders({method: 'POST', info: {query: query.id}}))
+        const data = await fetch('/project4/api/actors', apiHeaders({method: 'POST', info: {query: query.id}}))
         const dataJson = await data.json()
         setInfo({...dataJson})
         setShared(getShared({lang: dataJson.staff.languageV2, vaData: dataJson.shared}))

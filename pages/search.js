@@ -24,7 +24,7 @@ const Search = () => {
       try {
         setStatus('Loading...')
 
-        const data = await fetch('/api/search', apiHeaders({method: 'POST', info: {searchInput, searchType}}))
+        const data = await fetch('/project4/api/search', apiHeaders({method: 'POST', info: {searchInput, searchType}}))
         const dataJson = await data.json()
         
         setResults(dataJson)
