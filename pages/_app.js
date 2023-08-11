@@ -1,6 +1,9 @@
 import '@/styles/globals.css'
 import SessionProvider from '@/lib/getContext'
 import Navbar from '@/components/Navbar'
+import { Lato } from 'next/font/google'
+
+
 export default function App({ Component, pageProps }) {
 
   return (
