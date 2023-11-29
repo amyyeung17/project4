@@ -5,7 +5,7 @@ const MatchResult = ({info}) => {
 
   return(
     <>
-        <div className="border-2 border-stone-100 flex p-2 w-full">
+        <div className="flex justify-center p-2 shadow w-full">
           <ListItem character={info.chara} itemStyle={itemStyle} />
           <ListItem character={info.va} itemStyle={itemStyle} />
         </div>
