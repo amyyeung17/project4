@@ -28,8 +28,8 @@ a {
   @apply italic text-slate-700 hover:underline w-fit
 }
 
-.a-title + p {
-  @apply hover:underline
+.a-title + p.break-all {
+  @apply underline
 }
 
 /*Buttons*/
