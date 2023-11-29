@@ -57,7 +57,9 @@ const Search = () => {
             {results.map((r, num) => {
               return(
                 <React.Fragment key={num}>
-                  <SearchResult info={r}/>
+                  <div className="flex-col-center"> 
+                    <SearchResult info={r}/>
+                  </div>
                 </React.Fragment>
               )
             })}

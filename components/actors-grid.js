@@ -5,7 +5,7 @@ import { debounce } from 'lodash'
 
 const ActorsGrid = ({children, info}) => {
   const [display, setDisplay] = useState(false)
-  const [size, setSize] = useState(3)
+  const [size, setSize] = useState(4)
 
   const showRoles = useMemo(() => {
     return ((info.length > size && display || info.length < size + 1) ? info : info.slice(0, size))
@@ -13,7 +13,7 @@ const ActorsGrid = ({children, info}) => {
 
   useEffect(() => {
     const debounceSize = _.debounce(() => {
-      setSize(s => (window.innerWidth > 640 ? 3 : 4))
+      setSize(s => (window.innerWidth > 640 ? 4 : 3))
     }, 50)
     window.addEventListener('resize', debounceSize)
 
@@ -25,6 +25,7 @@ const ActorsGrid = ({children, info}) => {
       {info.length !== 0 ?
         <div className="flex-col-center overflow-x-hidden">
           <div className="grid-page">
+
             {React.cloneElement(children, {info: showRoles})}
           </div>
           <div className="px-3 self-end">

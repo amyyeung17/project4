@@ -17,15 +17,15 @@ const ActorsInfo = ({children, info}) => {
     })
     if (filtered.length > 3 ) {
       const nums = new Set()
-      const sampleSongs = []
-      while (sampleSongs.length !== 3) {
+      const sampleShows = []
+      while (sampleShows.length !== 3) {
         const index = Math.floor(Math.random() * filtered.length)
         if (!nums.has(index)) {
           nums.add(index)
-          sampleSongs.push(filtered[index])
+          sampleShows.push(filtered[index])
         }
       }
-      return sampleSongs
+      return sampleShows
     }
     return filtered
   }, [info])
@@ -33,7 +33,7 @@ const ActorsInfo = ({children, info}) => {
   return(
     <>
       <div className="bg-white flex mb-2 w-full">
-        <ProfileImage siteUrl={info.image.large} height="h-42" width="w-2/5 sm:w-1/2 md:w-1/3"/> 
+        <ProfileImage siteUrl={info.image.large} height="h-72 sm:h-96" width="w-2/5 sm:w-1/2 md:w-1/3"/> 
         <div className="flex flex-col h-fit px-3 sm:pl-3 py-2 w-4/5"> 
           <div className="flex max-sm:items-center justify-between w-full"> 
             <p className="font-medium max-sm:text-xl text-4xl w-fit"> 

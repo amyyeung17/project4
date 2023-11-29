@@ -59,30 +59,30 @@ button {
 }
 
 .btn-profile {
-  @apply h-fit my-1 px-5 py-1.5 rounded-lg text-center text-sm 
+  @apply h-fit px-5 py-1.5 self-center text-center text-sm w-3/4
 }
 
-/*Card divs*/
+/*Card divs max-w-[12rem]*/
 .card--basic {
-  @apply flex-col-center h-full relative rounded p-2 
+  @apply flex flex-col h-full relative w-full max-sm:max-w-[10rem] sm:max-w-[12rem]
 }
 
 .card {
-  @apply border-2 border-slate-50 bg-white card--basic shrink-0 snap-start;
+  @apply bg-white card--basic items-stretch pb-2 shadow shrink-0 snap-start ;
 }
 
 .card-result {
-  @apply card--basic justify-center snap-start;
+  @apply card--basic justify-center rounded snap-start;
 }
 
 .card-select {
-  @apply bg-white card--basic shadow h-fit mb-2 sm:w-3/4;
+  @apply bg-white card--basic shadow h-fit mb-2 rounded sm:w-3/4;
 }
 
 
 /*Grids*/
 .grid-page {
-  @apply auto-rows-fr grid grid-cols-2 sm:grid-cols-3 gap-x-4 md:gap-x-8 gap-y-2 md:gap-y-4 mb-4 px-3 py-2 w-full
+  @apply auto-rows-fr grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-4 lg:gap-x-8 gap-y-2 md:gap-y-4 mb-4 px-3 py-2 w-full
 }
 
 .media-grid {
@@ -105,7 +105,7 @@ p {
 }
 
 .text-language {
-  @apply leading-snug font-normal mb-1 text-center text-zinc-700 max-sm:text-sm
+  @apply leading-snug font-normal mb-1 text-zinc-700 max-sm:text-sm
 }
 
 .text-header {

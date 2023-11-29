@@ -11,10 +11,12 @@ const ActorsRoles = ({info}) => {
       {info.map((c, index) => {
         return(
           <React.Fragment key={index}>
-            <ListItem character={c} itemStyle={itemStyle} url={firstShow(c).siteUrl}> 
-              <Title show={firstShow(c)} titleStyle="a-title text-center text-sm max-sm:text-xs" />
-              <div className="grow"></div>
-            </ListItem>
+            <div className="flex-col-center"> 
+              <ListItem character={c} itemStyle={itemStyle} url={firstShow(c).siteUrl}> 
+                <Title show={firstShow(c)} titleStyle="a-title text-sm max-sm:text-xs px-2" />
+                <div className="grow"></div>
+              </ListItem>
+            </div>
           </React.Fragment>
         )
       })}
