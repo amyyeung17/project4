@@ -28,8 +28,8 @@ a {
   @apply italic text-slate-700 hover:underline w-fit
 }
 
-.a-title + p.break-all {
-  @apply underline
+a:hover + p.break-all {
+  @apply underline 
 }
 
 /*Buttons*/
@@ -75,7 +75,7 @@ button {
 }
 
 .card-result {
-  @apply card--basic justify-center rounded snap-start;
+  @apply card--basic rounded snap-start;
 }
 
 .card-select {

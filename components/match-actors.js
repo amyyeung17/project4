@@ -12,7 +12,7 @@ const MatchActors = ({info}) => {
       <div className="rounded flex-col-center px-3 py-2">
         <Title show={info.media.nodes[0]} titleStyle="a-title text-center sm:hidden my-1 text-xl" />
         <div className="media-div">
-          <ListItem character={info.first} itemStyle={itemStyle} height="h-40" />
+          < character={info.first} itemStyle={itemStyle} height="h-40" />
           <Media show={info.media.nodes[0]} divStyle={divStyle} height="h-60" titleStyle="a-title text-center mt-2 text-lg" />
           <ListItem character={info.second} itemStyle={itemStyle} height="h-40" />
         </div>
