@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }) {
       <SessionProvider>
         <Navbar />
         <div className="w-full"> 
-          <div className="bg-white container flex-col-center justify-between max-w-screen-md lg:max-w-screen-lg min-h-screen mx-auto mt-0.5 px-3 py-2 overflow-x-hidden">  
+          <div className=" container flex-col-center justify-between max-w-screen-md lg:max-w-screen-lg min-h-screen mx-auto mt-0.5 px-3 py-2 overflow-x-hidden">  
             <Component {...pageProps} />
             <div className="flex-col-center mt-6 py-2"> 
               <p> Created with <a href="https://anilist.gitbook.io/anilist-apiv2-docs/" className="a-general" target="_blank"> AniList API </a></p>

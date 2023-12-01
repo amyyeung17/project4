@@ -12,12 +12,12 @@ const ItemInfo = ({person, itemStyle}) => {
   return(
     <>
       <div className={`flex flex-col p-2 ${itemStyle.info}`}> 
-        <p className={`break-words leading-snug text-jet font-bold ${itemStyle.name}`}> {titleBreak()} </p>
+        <p className={`break-words leading-snug text-jet line-clamp-2 ${itemStyle.name}`}> {titleBreak()} </p>
         {person.name.native !== null &&
-          <p className={`break-all leading-snug text-zinc-500 line-clamp-1 ${itemStyle.native}`}> ({person.name.native}) </p>
+          <p className={`break-all leading-snug text-jet-light line-clamp-1 ${itemStyle.native}`}> ({person.name.native}) </p>
         }
         {(person.languageV2 !== null && itemStyle.lang) &&
-          <p className="text-language text-font"> {person.languageV2} </p>
+          <p className="text-language"> {person.languageV2} </p>
         }
       </div>
     

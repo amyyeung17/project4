@@ -26,7 +26,13 @@ module.exports = {
         "moss-dark": "#66624d",
         "darkcyan": "#379392",
         "hunyadi": "#F6AE2D",
-        "moss": "#928C6F"
+        "moss": "#928C6F",
+        "coral": '#FF8C61',
+        "jasper": '#D5573B',
+        "jasper-300": '#953d29',
+        "bittersweet": '#803332',
+        "amaranth-300": '#873244',
+        "navajo-white": '#FFE0B5'
       }
     },
   },

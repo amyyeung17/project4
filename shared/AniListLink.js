@@ -1,4 +1,4 @@
-const AniListLink = ({hidden = false, linkStyle = 'self-end text-sm', arrowStyle = 'text-xs' ,siteUrl}) => {
+const AniListLink = ({hidden = false, linkStyle = 'self-start text-sm', arrowStyle = 'text-xs' ,siteUrl}) => {
   return (
     <>
       <a href={siteUrl} className={`mx-2 mt-2 my-1 text-slate-700 hover:text-slate-500 w-fit ${linkStyle}`} target="_blank"> 

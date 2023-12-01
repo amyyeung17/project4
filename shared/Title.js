@@ -1,6 +1,6 @@
 
 const Title = ({show, titleStyle}) => {
-  console.log(show)
+
   return(
     <>
       <a className={`${titleStyle}`} href={show.siteUrl} target="_blank"> 

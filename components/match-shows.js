@@ -1,13 +1,14 @@
-import ListItem from '@/shared/ListItem'
+import Card from '@/shared/Card'
+import SearchResult from './search-result'
 
 const MatchShows = ({info}) => {
-  const itemStyle = {card: 'card-result', lang: false, link: 'self-center text-sm', info: 'grow mb-2', name: 'text-lg max-sm:text-base', native: 'text-sm max-sm:text-xs'}
+
   return(
     <>
       <div className="flex space-evenly w-full"> 
-        <ListItem character={info.chara} itemStyle={itemStyle}/>
-        <ListItem character={info.va} itemStyle={itemStyle}/>
-        <ListItem character={info.chara2} itemStyle={itemStyle}/>
+        <Card cardStyle="card-result" info={info.chara} />
+        <SearchResult info={info.va}/>
+        <Card cardStyle="card-result" info={info.chara2} />
       </div>
     </>
   )

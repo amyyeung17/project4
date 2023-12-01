@@ -19,9 +19,9 @@ export default async function actors(req, res) {
             const charaJson = await charaResponse.json()
             return charaJson
           }
-          
+         
           const charas = await Promise.all(filteredItems.map((show) => throttled(() => getCharas({id: show.id}))))
-
+          
           //res.status(200).json({staff: testObject, shared: testArray})
     
           res.status(200).json({staff: responseData.data.Staff, shared: charas})

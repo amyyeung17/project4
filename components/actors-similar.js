@@ -1,5 +1,6 @@
 import React from 'react'
 import SearchResult from './search-result'
+
 const ActorsSimilar = ({info}) => {
   
   return(

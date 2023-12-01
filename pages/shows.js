@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useContext } from 'react'
 import { useRouter } from 'next/router'
 import { apiHeaders }from '@/lib/getHeaders'
 import ShowsInfo from '@/components/shows-info'
@@ -7,12 +7,13 @@ import { getActorsOrigin, findActorsLang } from '@/lib/getShows'
 import Dropdown from '@/shared/Dropdown'
 import InfoOptions from '@/shared/InfoOptions'
 import StatusText from '@/shared/StatusText'
-
+import { SessionContext } from '@/lib/getContext'
 const Shows = () => {
   const router = useRouter()
   const [info, setInfo] = useState([])
   const [langActors, setLangActors] = useState([])
   const [status, setStatus] = useState('')
+  const [selected, _] = useContext(SessionContext).choices
   const { query } = router
   const originalLang = useRef('')
 
@@ -24,7 +25,8 @@ const Shows = () => {
         const dataJson = await data.json()
         setInfo(dataJson)
         originalLang.current = getActorsOrigin({origin: dataJson.countryOfOrigin, charaData: dataJson.characters})
-        setLangActors(findActorsLang({lang: originalLang.current, info: dataJson}))
+        const l = findActorsLang({lang: originalLang.current, info: dataJson, selected})
+        setLangActors(l.map(a => ({...a, va: {...a.va, picked: selected['actor'].some(s => s.id === a.va.id)}})))
         setStatus('Finished')
       } catch (err){
         console.log(err)
@@ -44,7 +46,7 @@ const Shows = () => {
           </ShowsInfo>
           <p className="font-bold mt-4 pl-3 self-start max-sm:text-xl text-2xl"> Cast </p>
           <Dropdown originalLang={originalLang.current} chooseLang={(l) => setLangActors(findActorsLang({lang: l, info}))}/>
-          <div className="max-sm:flex max-sm:flex-col max-sm:items-center sm:grid sm:grid-cols-2 sm:auto-rows-fr gap-x-4 md:gap-x-8 gap-y-2 md:gap-y-4 px-3 py-2 w-full"> 
+          <div className="max-sm:flex max-sm:flex-col max-sm:items-center sm:grid sm:grid-cols-2 sm:auto-rows-fr gap-x-4 md:gap-x-8 gap-y-8 px-3 py-2 w-full"> 
             {langActors.map((a) => {
               return(
                 <React.Fragment key={a.chara.id}>

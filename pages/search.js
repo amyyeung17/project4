@@ -12,12 +12,30 @@ const Search = () => {
   const [status, setStatus] = useState('')
   const [searchInput, setInput] = useState('')
   const [searchType, setSearchType] = useContext(SessionContext).type
+  const [selected, setSelected] = useContext(SessionContext).choices
   const [_, setPrev] = useContext(SessionContext).prev
 
   
   useEffect(() => {
     setPrev('/search')
-  }, [])
+
+    const getTrending = async () => {
+      try {
+        setStatus('Loading...')
+
+        const data = await fetch('/project4/api/trend', apiHeaders({method: 'POST', info: {searchType}}))
+        const dataJson = await data.json()
+        setResults(dataJson.data)
+        setStatus('Finished')
+      } catch (err) {
+        console.log(err)
+      }
+    }
+
+    if (searchInput === '') {
+      getTrending()
+    }
+  }, [searchType])
 
   useEffect(() => {
     const getSearchResults = async () => {
@@ -26,8 +44,8 @@ const Search = () => {
 
         const data = await fetch('/project4/api/search', apiHeaders({method: 'POST', info: {searchInput, searchType}}))
         const dataJson = await data.json()
-        
-        setResults(dataJson)
+  
+        setResults(dataJson.map(d => ({...d, picked: selected[searchType ? 'show' : 'actor'].some(s => s.id === d.id)})))
         setStatus('Finished')
       } catch (err) {
         console.log(err)
@@ -37,13 +55,13 @@ const Search = () => {
       getSearchResults()
     }
 
-  }, [searchInput])
+  }, [searchInput, searchType])
 
   const text = () => {
     if (status !== 'Finished' && searchInput === '') {
-      return `Search ${searchType ? 'for titles and their voice actors': 'to match or check out similar artists'}`
+      return `Search for ${searchType ? 'titles': 'artists'}`
     } else {
-      return results.length === 0 && status === 'Finished' ? 'No results' : status
+      return results.length === 0 && status === 'Finished' ? <>No {searchType ? 'title' : 'voice actor'} results for <span className="text-amaranth-300"> <b> "{searchInput}" </b></span></> : status
     }
   }
  
@@ -52,11 +70,20 @@ const Search = () => {
       <div className="flex-col-center">
         <SearchInput editInput={setInput} />
         <Toggle searchType={searchType} setSearchType={setSearchType}/>
-        {(results.length !== 0 && status === 'Finished' && searchInput !== '') ?
-          <div className="grid-page mt-2">
+          {results.length !== 0 && 
+            <div className="grids mt-1">
+              <div className="flex-col-center"> 
+                <p className="w-full whitespace-nowrap max-sm:max-w-[10rem] sm:max-w-[12rem]"> 
+                  {searchInput === '' ? <span className="text-amaranth-300"> Trending today </span>: <>Showing results for <span className="text-amaranth-300"> <b> "{searchInput}" </b></span> </>}
+                </p>
+              </div>
+            </div>
+          }
+        {(results.length !== 0 && status === 'Finished') ?
+          <div className="grid-page mt-1">
             {results.map((r, num) => {
               return(
-                <React.Fragment key={num}>
+                <React.Fragment key={num}> 
                   <div className="flex-col-center"> 
                     <SearchResult info={r}/>
                   </div>

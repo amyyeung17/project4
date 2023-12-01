@@ -1,14 +1,15 @@
+
 import ProfileImage from '@/shared/ProfileImage'
-import Title from '@/shared/Title'
+import AniLink from '@/shared/AniLink'
+import { renameShowObj } from '@/lib/getShows'
 
 
 const Media = ({divStyle, height = 'h-32', show, titleStyle}) => {
-
   return(
     <>
       <div className={divStyle}> 
         <ProfileImage siteUrl={show.coverImage.large} height={height}/>
-        <Title show={show} titleStyle={titleStyle} />
+        <AniLink info={renameShowObj({show})} linkStyle={titleStyle}/>
       </div>
     </>
   )

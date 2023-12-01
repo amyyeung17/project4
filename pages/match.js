@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useMemo, useRef } from 'react'
+import React, { useContext, useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/router'
 import { apiHeaders }from '@/lib/getHeaders'
 import { SessionContext } from '@/lib/getContext'
@@ -31,6 +31,7 @@ const Match = () => {
         setStatus('Loading...')
         const data = await fetch('/project4/api/match', apiHeaders({method: 'POST', info: {searchType, selected: selected[type]}}))
         const dataJson = await data.json()
+
         if (searchType) {
           setInfo(dataJson)
           originalLang.current = getActorsOrigin({origin: dataJson.first.countryOfOrigin, chara: dataJson.first.characters})
@@ -51,7 +52,8 @@ const Match = () => {
     }
     getMatches()
   }, [])
-
+  console.log(results)
+  console.log(info)
 
   return(
     <>
@@ -60,7 +62,7 @@ const Match = () => {
         {selected[type].length === 2 && <MatchSelected selected={selected} type={type} /> }
         {(searchType && status !== 'Loading...') && 
           <Dropdown originalLang={originalLang.current} chooseLang={(l) => setResults(getMatchShow({lang: l, info}))} />
-          }
+        }
         {(typeof(results) !== 'undefined' && results.length !== 0) ?
           results.map((r, index) => (
             <React.Fragment key={r.id + '' + index}>

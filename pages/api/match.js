@@ -20,12 +20,14 @@ export default async function voice(req, res) {
   
         const secondResponse = await fetch('https://graphql.anilist.co', fetchHeaders({query: (searchType ? showQuery : searchQuery), variables: {id: selected[1].id}}))
         const secondData = await secondResponse.json()
-
+        
         if (searchType) {
           res.status(200).json({first: firstData.data.Media, second: secondData.data.Media})
         } else {
           const matchedMedia = getMatchActors({firstVa: firstData.data.Page.staff[0], secondVa: secondData.data.Page.staff[0]})
-          const filteredMedia  = filterMatchActors({shows: [...matchedMedia]} )
+  
+          const filteredMedia = filterMatchActors({shows: [...matchedMedia]} )
+      
           res.status(200).json({roles: filteredMedia})
         }
       } catch (err){

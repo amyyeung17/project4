@@ -21,8 +21,8 @@ const Select = () => {
 
   return(
     <>
-      <p className="text-header"> Choose 2  </p>
-      <Toggle searchType={searchType} setSearchType={setSearchType}/>
+      <p className="text-header"> Match </p>
+      <Toggle searchType={searchType} setSearchType={setSearchType} divStyle="justify-center"/>
       <div className="flex-evenly max-sm:gap-x-4 my-4 py-3 px-2">
         {selected[type].length !== 0 && selected[type].map((s, index) => {
           return (
