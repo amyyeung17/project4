@@ -17,7 +17,7 @@ const ItemInfo = ({person, itemStyle}) => {
           <p className={`break-all leading-snug text-jet-light line-clamp-1 ${itemStyle.native}`}> ({person.name.native}) </p>
         }
         {(person.languageV2 !== null && itemStyle.lang) &&
-          <p className="text-language"> {person.languageV2} </p>
+          <p className="leading-snug my-1 text-jet max-sm:text-sm text-sm"> {person.languageV2} </p>
         }
       </div>
     

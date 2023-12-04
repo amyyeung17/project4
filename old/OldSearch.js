@@ -6,8 +6,8 @@ import SearchResult from '@/components/search-result'
 import SearchInput from '@/components/search-input'
 import testObject from '@/lib/testObject'
 import testSearch from '@/lib/testSearch'
-import AddButton from '@/shared/AddButton'
-import RemoveButton from '@/shared/RemoveButton'
+import AddButton from '@/old/AddButton'
+import RemoveButton from '@/old/RemoveButton'
 //CHECK! - React.StrictMode? - render twice
 //7-1 - removed flex-col-center
 const Search = () => {

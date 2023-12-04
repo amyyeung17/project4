@@ -1,6 +1,4 @@
 
-import AddButton from '@/shared/AddButton'
-
 const SelectTempItem = ({length, text, navFun}) => {
  
   return (
@@ -11,7 +9,7 @@ const SelectTempItem = ({length, text, navFun}) => {
             <div className="card-select justify-center" style={{minHeight: '392px'}}>
               <p className="max-sm:text-2xl text-3xl text-center text-slate-500"> {text} #{length === 0 ? index + 1 : 2}</p>
             </div>
-            <AddButton text="Add" addFun={navFun} />
+            <button className="btn-add" onClick={() => navFun()}> Add </button>
           </div>
         )})
       }

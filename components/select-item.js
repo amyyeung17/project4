@@ -1,6 +1,8 @@
 
-import ListItem from '@/shared/ListItem'
 import ProfileButton from '@/shared/ProfileButton'
+import AniListLink from '@/shared/AniListLink'
+import ItemInfo from '@/shared/ItemInfo'
+import ProfileImage from '@/shared/ProfileImage'
 //Check! - https://stackoverflow.com/questions/67185279/react-jsx-in-a-variable-vs-a-function-vs-a-separate-component
 
 const SelectItem = ({children, type,  person}) => {
@@ -9,10 +11,13 @@ const SelectItem = ({children, type,  person}) => {
   return(
     <>
       <div className="flex-col-center max-sm:w-1/2 sm:grow max-w-[25rem]"> 
-        <ListItem character={person} height="h-72 sm:h-96" itemStyle={itemStyle}>
+        <div className="card-select pb-2">
+          <ProfileImage siteUrl={person.image.large} height="h-72 sm:h-96"/>
+          <ItemInfo person={person} itemStyle={itemStyle} /> 
           <div className="grow"></div>
           <ProfileButton path={type + 's'} id={person.id} buttonStyle="btn--main" />
-        </ListItem>
+          <AniListLink siteUrl={person.siteUrl} linkStyle={itemStyle.link}/>
+        </div>
         {children}
       </div>
     </>

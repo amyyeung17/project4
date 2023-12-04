@@ -1,8 +1,6 @@
 import { useContext } from 'react'
 import { SessionContext } from '@/lib/getContext'
-import AddButton from './AddButton'
-import RemoveButton from './RemoveButton'
-
+import { removeItem } from '@/lib/getOptions'
 
 const InfoOptions = ({info, type, id, routeFun}) => {
   const [selected, setSelected] = useContext(SessionContext).choices
@@ -18,9 +16,9 @@ const InfoOptions = ({info, type, id, routeFun}) => {
       {prevPath !== '/match' &&
         <>
           {![...selected[type].map(s => s.id)].includes(parseInt(id)) ?
-          <AddButton addFun={() => getSelected()} isDisabled={selected[type].length === 2}/>
+            <button className="btn-add" isDisabled={selected[type].length === 2} onClick={() => getSelected()}> Select </button>
           :
-          <RemoveButton index={[...selected[type].map(s => s.id)].indexOf(parseInt(id))} type={type} setSelected={setSelected}/>
+            <button className="btn--secondary my-1 py-1" onClick={() => removeItem({index: [...selected[type].map(s => s.id)].indexOf(parseInt(id)), type, setSelected})}> Unselect </button>
           }
         </>
       }

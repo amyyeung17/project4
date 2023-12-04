@@ -1,3 +1,4 @@
+import AniLink from '@/shared/AniLink'
 import Card from '@/shared/Card'
 import SearchResult from './search-result'
 
@@ -5,10 +6,13 @@ const MatchShows = ({info}) => {
 
   return(
     <>
-      <div className="flex space-evenly w-full"> 
-        <Card cardStyle="card-result" info={info.chara} />
-        <SearchResult info={info.va}/>
-        <Card cardStyle="card-result" info={info.chara2} />
+      <AniLink info={info.va} linkStyle="a-title text-center sm:hidden my-1 text-xl" nativeStyle="sm:hidden"/>
+      <div className="flex space-evenly w-full px-3 py-2 "> 
+        <Card cardStyle="card-result" info={info.chara}  divStyle="flex-col-center max-sm:pr-2"/>
+        <div className="flex-col-center justify-center max-sm:hidden"> 
+          <SearchResult info={info.va}/>
+        </div>
+        <Card cardStyle="card-result" info={info.chara2}  divStyle="flex-col-center max-sm:pl-2"/>
       </div>
     </>
   )

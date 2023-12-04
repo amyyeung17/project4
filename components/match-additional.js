@@ -10,7 +10,7 @@ const MediaAdditional = ({info}) => {
     <>
       <ShowButton display={display} setDisplay={setDisplay} text="shows"/>
       {display &&
-        <div className="px-2 w-full"> 
+        <div className="sm:px-2 w-full"> 
           <div className="media-grid">
             {info.map((i) => (
               <React.Fragment key={i.id + ' additional'}>

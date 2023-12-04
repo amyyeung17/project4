@@ -45,7 +45,7 @@ const ActorsInfo = ({children, info}) => {
             </p> 
             <AniListLink siteUrl={info.siteUrl} hidden linkStyle="self-center text-xl max-sm:text-base" arrowStyle="max-sm:text-base text-lg"/>
           </div>
-          <p className="max-sm:text-xl text-2xl text-slate-500 text-font mt-1 mb-2"> {info.languageV2} </p>
+          <p className="max-sm:text-xl text-2xl text-slate-500 mt-1 mb-2"> {info.languageV2} </p>
           <p className="text-lg"> <span className="text-zinc-500 font-medium"> Age: </span> {info.age} </p>
           <p className="text-lg"> <span className="text-zinc-500 font-medium"> Hometown: </span> {info.homeTown} </p>
           <p className="text-lg"> <span className="text-zinc-500 font-medium"> Years Active: </span> {info.yearsActive} </p>

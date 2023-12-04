@@ -5,7 +5,7 @@ import ProfileImage from '@/shared/ProfileImage'
 import Selected from '@/shared/Selected'
 
 const SearchResult = ({cardStyle = 'card', info}) => {
-  const itemStyle = {card: 'card', lang: true, link: 'self-end text-sm max-sm:text-sm', info: 'grow', name: 'text-lg max-sm:text-base', native: 'text-lg max-sm:text-sm'}
+  const itemStyle = {card: 'card', lang: true, link: 'self-end text-sm max-sm:text-sm', info: 'grow', name: 'text-lg max-sm:text-base', native: 'text-base max-sm:text-sm'}
 
   return(
     <>
