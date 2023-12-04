@@ -61,7 +61,7 @@ const Search = () => {
     if (status !== 'Finished' && searchInput === '') {
       return `Search for ${searchType ? 'titles': 'artists'}`
     } else {
-      return results.length === 0 && status === 'Finished' ? <>No {searchType ? 'title' : 'voice actor'} results for <span className="text-amaranth-300"> <b> "{searchInput}" </b></span></> : status
+      return results.length === 0 && status === 'Finished' ? <>No {searchType ? 'title' : 'voice actor'} results for <span className="text-amaranth-300"> <b> &apos;{searchInput}&apos; </b></span></> : status
     }
   }
  
@@ -74,7 +74,7 @@ const Search = () => {
             <div className="grids mt-1">
               <div className="flex-col-center"> 
                 <p className="w-full whitespace-nowrap max-sm:max-w-[10rem] sm:max-w-[12rem]"> 
-                  {searchInput === '' ? <span className="text-amaranth-300"> Trending today </span>: <>Showing results for <span className="text-amaranth-300"> <b> "{searchInput}" </b></span> </>}
+                  {searchInput === '' ? <span className="text-amaranth-300"> Trending today </span>: <>Showing results for <span className="text-amaranth-300"> <b> &apos;{searchInput}&apos; </b></span> </>}
                 </p>
               </div>
             </div>
