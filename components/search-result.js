@@ -2,17 +2,20 @@ import React from 'react'
 import ItemInfo from '@/shared/ItemInfo'
 import ProfileButton from '@/shared/ProfileButton'
 import ProfileImage from '@/shared/ProfileImage'
+import Selected from '@/shared/Selected'
 
-const SearchResult = ({info}) => {
-  const itemStyle = {card: 'card', lang: true, link: 'self-end text-sm max-sm:text-sm', info: 'grow', name: 'text-lg max-sm:text-base', native: 'text-sm max-sm:text-xs'}
+const SearchResult = ({cardStyle = 'card', info}) => {
+  const itemStyle = {card: 'card', lang: true, link: 'self-end text-sm max-sm:text-sm', info: 'grow', name: 'text-lg max-sm:text-base', native: 'text-base max-sm:text-sm'}
 
   return(
     <>
-      <div className="card"> 
+      <ProfileButton path={typeof(info.type) !== 'undefined' ? 'shows' : 'actors'} id={info.id} buttonStyle={`${cardStyle} shadow hover:shadow-md h-full relative`}>
         <ProfileImage siteUrl={info.image.large} />
         <ItemInfo itemStyle={itemStyle} person={info} />
-        <ProfileButton path={typeof(info.type) !== 'undefined' ? 'shows' : 'actors'} id={info.id} buttonStyle="btn--main relative" />
-      </div>
+        {info.picked && 
+          <Selected />
+        }
+      </ProfileButton>
     </>
   )
 }

@@ -12,9 +12,14 @@ const ActorsGrid = ({children, info}) => {
   }, [display, info, size])
 
   useEffect(() => {
+    setSize(() => (window.innerWidth < 640 ? 2 : (window.innerWidth >= 1024 ? 4 : 3)))
+  }, [])
+
+  useEffect(() => {
     const debounceSize = _.debounce(() => {
-      setSize(s => (window.innerWidth > 640 ? 3 : 4))
+      setSize(() => (window.innerWidth < 640 ? 2 : (window.innerWidth >= 1024 ? 4 : 3)))
     }, 50)
+
     window.addEventListener('resize', debounceSize)
 
     return () => window.removeEventListener('resize', debounceSize)

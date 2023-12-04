@@ -5,12 +5,12 @@ import { Listbox } from '@headlessui/react'
 const Dropdown = ({originalLang, chooseLang, type = 'show'}) => {
   const [currentLang, setCurrent] = useState(originalLang)
   const typeText = type === 'show' ? `Origin (${originalLang}) ` : 'Artist Language'
-  const allLang = ['All Languages', typeText, 'Japanese', 'English', 'Korean', 'Chinese', 'Spanish',
+  const allLang = [typeText, 'Japanese', 'English', 'Korean', 'Chinese', 'Spanish',
     'French', 'Italian', 'Portuguese', 'German', 'Hebrew', 'Hungarian'  
   ]
 
   allLang.splice(allLang.findIndex((a) => a === originalLang), 1)
-  const updatedLang = [...allLang.map((l, i) => ({id: i, name: l}))]
+  const updatedLang = [...(type === 'show' ? allLang : ['All Languages', ...allLang]).map((l, i) => ({id: i, name: l}))]
 
 
   

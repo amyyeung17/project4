@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useMemo, useRef } from 'react'
+import React, { useContext, useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/router'
 import { apiHeaders }from '@/lib/getHeaders'
 import { SessionContext } from '@/lib/getContext'
@@ -8,7 +8,7 @@ import MatchShows from '@/components/match-shows'
 import Dropdown from '@/shared/Dropdown'
 import StatusText from '@/shared/StatusText'
 import { getActorsOrigin, getMatchShows }from '@/lib/getShows'
-import testObj from '@/lib/testObj'
+//import testObj from '@/lib/testObj'
 
 const Match = () => {
   const [selected, _] = useContext(SessionContext).choices
@@ -31,6 +31,7 @@ const Match = () => {
         setStatus('Loading...')
         const data = await fetch('/project4/api/match', apiHeaders({method: 'POST', info: {searchType, selected: selected[type]}}))
         const dataJson = await data.json()
+
         if (searchType) {
           setInfo(dataJson)
           originalLang.current = getActorsOrigin({origin: dataJson.first.countryOfOrigin, chara: dataJson.first.characters})
@@ -56,11 +57,11 @@ const Match = () => {
   return(
     <>
       <div className="flex-col-center h-full mb-4 space-y-4"> 
-        <p className="text-center my-2 text-status"> Shared {searchType ? 'Voice Actors' : 'Shows'} and Roles {searchType ? 'in' : 'for'} </p>
+        <p className="my-2 text-status"> Shared {searchType ? 'Voice Actors' : 'Shows'} and Roles {searchType ? 'in' : 'for'} </p>
         {selected[type].length === 2 && <MatchSelected selected={selected} type={type} /> }
         {(searchType && status !== 'Loading...') && 
           <Dropdown originalLang={originalLang.current} chooseLang={(l) => setResults(getMatchShow({lang: l, info}))} />
-          }
+        }
         {(typeof(results) !== 'undefined' && results.length !== 0) ?
           results.map((r, index) => (
             <React.Fragment key={r.id + '' + index}>

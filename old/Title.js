@@ -8,7 +8,7 @@ const Title = ({show, titleStyle}) => {
         {(show.title.english !== null && show.title.native !== null) &&
           <span className="text-xs sm:text-sm"> ({show.title.native}) </span>
         } 
-        <span className="bi bi-box-arrow-up-right text-xs"> </span>
+        <span className="bi bi-box-arrow-up-right relative bottom-0.5 left-0.5 text-xs"> </span>
       </a>
     </>
   )

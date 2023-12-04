@@ -1,13 +1,18 @@
-import ListItem from '@/shared/ListItem'
+import AniLink from '@/shared/AniLink'
+import Card from '@/shared/Card'
+import SearchResult from './search-result'
 
 const MatchShows = ({info}) => {
-  const itemStyle = {card: 'card-result', lang: false, link: 'self-center text-sm', info: 'grow mb-2', name: 'text-lg max-sm:text-base', native: 'text-sm max-sm:text-xs'}
+
   return(
     <>
-      <div className="flex space-evenly w-full"> 
-        <ListItem character={info.chara} itemStyle={itemStyle}/>
-        <ListItem character={info.va} itemStyle={itemStyle}/>
-        <ListItem character={info.chara2} itemStyle={itemStyle}/>
+      <AniLink info={info.va} linkStyle="a-title text-center sm:hidden my-1 text-xl" nativeStyle="sm:hidden"/>
+      <div className="flex space-evenly w-full px-3 py-2 "> 
+        <Card cardStyle="card-result" info={info.chara}  divStyle="flex-col-center max-sm:pr-2"/>
+        <div className="flex-col-center justify-center max-sm:hidden"> 
+          <SearchResult info={info.va}/>
+        </div>
+        <Card cardStyle="card-result" info={info.chara2}  divStyle="flex-col-center max-sm:pl-2"/>
       </div>
     </>
   )

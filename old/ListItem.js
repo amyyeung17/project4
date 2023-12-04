@@ -2,7 +2,7 @@ import AniListLink from '@/shared/AniListLink'
 import ItemInfo from '@/shared/ItemInfo'
 import ProfileImage from '@/shared/ProfileImage'
 
-const ListItem = ({character, children, height = 'h-40 sm:h-48', itemStyle, ...props}) => {
+const ListItem = ({character, children, height, itemStyle, ...props}) => {
   return(
     <>
       <div className={itemStyle.card}>

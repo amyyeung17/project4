@@ -23,7 +23,8 @@ const Actors = () => {
         setStatus('Loading...')
         const data = await fetch('/project4/api/actors', apiHeaders({method: 'POST', info: {query: query.id}}))
         const dataJson = await data.json()
-        setInfo({...dataJson})
+        const chara = dataJson.staff.characters.nodes.filter(f => f.id !== 36309)
+        setInfo({...dataJson, staff: {...dataJson.staff, characters: {nodes: (chara.length > 20 ? chara.slice(0, 20): chara)}}})
         setShared(getShared({lang: dataJson.staff.languageV2, vaData: dataJson.shared}))
         setStatus('Finished')
       } catch (err){
@@ -42,11 +43,11 @@ const Actors = () => {
           <ActorsInfo info={info.staff}>
             <InfoOptions info={info.staff} id={query.id} type="actor" routeFun={() => router.push('/select')}/>
           </ActorsInfo>
-          <p className="font-bold mt-4 mb-2 pl-3 self-start max-sm:text-xl text-2xl"> Popular Roles </p>
-          <ActorsGrid info={info.staff.characters.nodes}>
+          <p className="font-medium mt-4 mb-2 pl-3 self-start max-sm:text-xl text-2xl"> Popular Roles </p>
+          <ActorsGrid info={info.staff.characters.nodes.filter(f => f.id !== 36309)}>
             <ActorsRoles />
           </ActorsGrid>
-          <p className="font-bold mt-4 pl-3 self-start max-sm:text-xl text-2xl"> Similar Actors </p>
+          <p className="font-medium mt-4 pl-3 self-start max-sm:text-xl text-2xl"> Similar Actors </p>
           <Dropdown type="actor" originalLang={info.staff.languageV2} chooseLang={(l) => setShared(getShared({lang: l, vaData: info.shared}))}/>
           <ActorsGrid info={shared}>
             <ActorsSimilar />

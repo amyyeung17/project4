@@ -1,20 +1,33 @@
-import React from 'react'
-import ListItem from '../shared/ListItem'
-import Title from '@/shared/Title'
+import React, { useContext }from 'react'
+import Card from '@/shared/Card'
+import ItemInfo from '@/shared/ItemInfo'
+import ProfileButton from '@/shared/ProfileButton'
+import { renameShowObj } from '@/lib/getShows'
+import { SessionContext } from '@/lib/getContext'
 
 const ActorsRoles = ({info}) => {
-  const firstShow =  (c) => c.media.nodes.filter(n => !['MUSIC', 'MANGA', 'NOVEL', 'ONE_SHOT'].includes(n.format)).find(x => x.title.english !== null || x.title.native !== null)
-  const itemStyle = {card: 'card', lang: false, link: 'self-end text-sm max-sm:text-xs', info: 'h-fit', name: 'text-lg max-sm:text-base', native: 'text-sm max-sm:text-xs'}
+  const [selected, _] = useContext(SessionContext).choices
 
+  const first = (c) => {
+    const temp = c.media.nodes.filter(n => !['MUSIC', 'MANGA', 'NOVEL', 'ONE_SHOT'].includes(n.format))
+    const i = temp.find(t => selected['show'].some(s => s.id === t.id))
+    if (typeof(i) !== 'undefined') {
+      return {...i, picked: true}
+    } 
+    return temp.find(x => x.title.english !== null || x.title.native !== null)
+  }
   return(
     <>
       {info.map((c, index) => {
         return(
           <React.Fragment key={index}>
-            <ListItem character={c} itemStyle={itemStyle} url={firstShow(c).siteUrl}> 
-              <Title show={firstShow(c)} titleStyle="a-title text-center text-sm max-sm:text-xs" />
-              <div className="grow"></div>
-            </ListItem>
+            <div className="flex-col-center"> 
+              <ProfileButton path="shows" id={first(c).id} buttonStyle="card hover:shadow-md shadow h-full relative">
+                <Card cardStyle="h-full pb-0" divStyle="h-full" info={{...c, picked: first(c).picked}} native="mx-2 mb-1">
+                  <ItemInfo person={renameShowObj({show: first(c)})} itemStyle={{name: "max-sm:text-sm", native: "mb-2 text-sm max-sm:text-xs"}}/>
+                </Card>
+              </ProfileButton>
+            </div>
           </React.Fragment>
         )
       })}

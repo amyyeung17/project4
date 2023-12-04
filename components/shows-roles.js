@@ -1,13 +1,15 @@
-import ListItem from '@/shared/ListItem'
+import Card from '@/shared/Card'
+import SearchResult from './search-result'
 
 const MatchResult = ({info}) => {
-  const itemStyle = {card: 'card-result', lang: false, link: 'self-center text-sm', info: 'grow mb-2', name: 'text-lg max-sm:text-base', native: 'text-sm max-sm:text-xs'}
 
   return(
     <>
-        <div className="border-2 border-stone-100 flex p-2 w-full">
-          <ListItem character={info.chara} itemStyle={itemStyle} />
-          <ListItem character={info.va} itemStyle={itemStyle} />
+        <div className="flex w-full">
+          <Card cardStyle="card-result shadow" info={info.chara} divStyle="flex flex-col items-end w-full sm:w-1/2 pr-2"/>
+          <div className="flex flex-col items-start w-full sm:w-1/2 pl-2">
+            <SearchResult cardStyle="card-result" info={info.va} />
+          </div>
         </div>
     </>
   )
