@@ -1,11 +1,11 @@
 import Link from 'next/link'
-
-const ProfileButton = ({buttonStyle, path = 'actors', id}) => {
+//{path === 'actors' ? 'Profile' : 'Info'}
+const ProfileButton = ({buttonStyle, children, path = 'actors', id}) => {
  
   return(
     <>
-      <Link href={`/${path}?id=${id}`} className={`${buttonStyle} btn-profile`}>  
-        {path === 'actors' ? 'Profile' : 'Info'}
+      <Link href={`/${path}?id=${id}`} className={`${buttonStyle}`}>  
+        {children}
       </Link>
     </>
   )

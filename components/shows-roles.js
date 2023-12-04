@@ -6,7 +6,7 @@ const MatchResult = ({info}) => {
   return(
     <>
         <div className="flex w-full">
-          <Card cardStyle="card-result" info={info.chara} divStyle="flex flex-col items-end w-full sm:w-1/2 pr-2"/>
+          <Card cardStyle="card-result shadow" info={info.chara} divStyle="flex flex-col items-end w-full sm:w-1/2 pr-2"/>
           <div className="flex flex-col items-start w-full sm:w-1/2 pl-2">
             <SearchResult cardStyle="card-result" info={info.va} />
           </div>

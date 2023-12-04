@@ -5,7 +5,7 @@ import SearchInput from '@/components/search-input'
 import { SessionContext } from '@/lib/getContext'
 import Toggle from '@/shared/Toggle'
 import StatusText from '@/shared/StatusText'
-import testSearch from '@/lib/testSearch'
+//import testSearch from '@/lib/testSearch'
 
 const Search = () => {
   const [results, setResults] = useState([])
@@ -25,7 +25,7 @@ const Search = () => {
 
         const data = await fetch('/project4/api/trend', apiHeaders({method: 'POST', info: {searchType}}))
         const dataJson = await data.json()
-        setResults(dataJson.data)
+        setResults(dataJson.data.map(d => ({...d, picked: selected[searchType ? 'show' : 'actor'].some(s => s.id === d.id)})))
         setStatus('Finished')
       } catch (err) {
         console.log(err)

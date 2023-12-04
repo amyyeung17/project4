@@ -15,7 +15,9 @@ const SelectItem = ({children, type,  person}) => {
           <ProfileImage siteUrl={person.image.large} height="h-72 sm:h-96"/>
           <ItemInfo person={person} itemStyle={itemStyle} /> 
           <div className="grow"></div>
-          <ProfileButton path={type + 's'} id={person.id} buttonStyle="btn--main" />
+          <ProfileButton path={type + 's'} id={person.id} buttonStyle="btn--main btn-profile" >
+            {type === 'actors' ? 'Profile' : 'Info'}
+          </ProfileButton>
           <AniListLink siteUrl={person.siteUrl} linkStyle={itemStyle.link}/>
         </div>
         {children}

@@ -54,10 +54,25 @@ const Info = () => {
             <li> Reverted UI in match.js page </li>
           </ul>
         </ul>
-        <h3> Future goals </h3>
+        <ul>
+          <li> 12/4 </li>
+          <ul> 
+            <li> Added trending actors/shows </li>
+            <li> Fixed small screen display for matched results </li>
+            <li> Removed unused files  </li>
+            <li> Changed UI </li>
+          </ul>
+        </ul>
+        <h3> Tasks </h3>
         <ul> 
+          <li> UI </li>
           <li> Error-handling, proper preventing access to match page  </li>
-          <li> Adding trending artists in search page </li>
+          <li> Suggested shows based on actors in show page  </li>
+          <li> Connect series </li>
+          <li> Additional searches </li>
+          <li> Accessibility measures </li>
+          <li> Maintain session for inputs </li>
+          <li> Sort by alphabetical order - results </li>
           <li> Add additional sources: http://www.usagi.org/doi/seiyuu/</li>
         </ul>
       </div>

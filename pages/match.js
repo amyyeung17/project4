@@ -8,7 +8,7 @@ import MatchShows from '@/components/match-shows'
 import Dropdown from '@/shared/Dropdown'
 import StatusText from '@/shared/StatusText'
 import { getActorsOrigin, getMatchShows }from '@/lib/getShows'
-import testObj from '@/lib/testObj'
+//import testObj from '@/lib/testObj'
 
 const Match = () => {
   const [selected, _] = useContext(SessionContext).choices
@@ -52,8 +52,7 @@ const Match = () => {
     }
     getMatches()
   }, [])
-  console.log(results)
-  console.log(info)
+
 
   return(
     <>

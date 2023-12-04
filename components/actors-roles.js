@@ -21,11 +21,13 @@ const ActorsRoles = ({info}) => {
       {info.map((c, index) => {
         return(
           <React.Fragment key={index}>
-            <Card info={{...c, picked: first(c).picked}} native="mx-2 mb-1">
-              <ItemInfo person={renameShowObj({show: first(c)})} itemStyle={{name: "max-sm:text-sm", native: "mb-2 text-sm max-sm:text-xs"}}/>
-              <div className="grow"> </div>
-              <ProfileButton path="shows" id={first(c).id} buttonStyle="btn--main relative" />
-            </Card>
+            <div className="flex-col-center"> 
+              <ProfileButton path="shows" id={first(c).id} buttonStyle="card hover:shadow-md shadow h-full relative">
+                <Card cardStyle="h-full pb-0" divStyle="h-full" info={{...c, picked: first(c).picked}} native="mx-2 mb-1">
+                  <ItemInfo person={renameShowObj({show: first(c)})} itemStyle={{name: "max-sm:text-sm", native: "mb-2 text-sm max-sm:text-xs"}}/>
+                </Card>
+              </ProfileButton>
+            </div>
           </React.Fragment>
         )
       })}

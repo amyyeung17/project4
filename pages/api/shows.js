@@ -1,7 +1,7 @@
 import { showQuery } from '@/lib/getQuery'
 import { fetchHeaders } from '@/lib/getHeaders'
-import testObject from '@/lib/testObject'
-import testArray from '@/lib/testArray'
+//import testObject from '@/lib/testObject'
+//import testArray from '@/lib/testArray'
 import { renameShowObj } from '@/lib/getShows'
 export default async function shows(req, res) {
   const { method } = req

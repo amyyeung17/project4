@@ -17,10 +17,10 @@ const ShowsInfo = ({children, info}) => {
           {info.synonyms !== null && 
             <span className="font-normal max-sm:text-base text-xl text-slate-500 line-clamp-2 mb-2"> Also known as: {info.synonyms.map((c, index) => c + (index !== info.synonyms.length - 1 ? ', ' : ''))} </span>
           }
-          <p className="text-lg"> <span className="text-zinc-500 font-medium"> Country of Origin:  </span> {info.countryOfOrigin} </p>
-          <p className="text-lg"> <span className="text-zinc-500 font-medium"> Number of episodes: </span> {info.episodes} </p>
-          <p className="text-lg"> <span className="text-zinc-500 font-medium"> Airing Time: </span> {getShowDate({format: info.format, start: info.startDate})} </p>
-          <p className="text-lg"> <span className="text-zinc-500 font-medium"> Format: </span> {info.format} </p>
+          <p> <span className="text-zinc-500 font-medium"> Country of Origin:  </span> {info.countryOfOrigin} </p>
+          <p> <span className="text-zinc-500 font-medium"> Number of episodes: </span> {info.episodes} </p>
+          <p> <span className="text-zinc-500 font-medium"> Airing Time: </span> {getShowDate({format: info.format, start: info.startDate})} </p>
+          <p> <span className="text-zinc-500 font-medium"> Format: </span> {info.format} </p>
           <p className="max-sm:hidden text-lg"> <span className="text-zinc-500 font-medium"> Genres: </span> {info.genres.map((c, index) => c + (index !== info.genres.length - 1 ? ', ' : ''))} </p>
           <div className="flex self-end justify-end grow items-end max-sm:my-1 sm:w-fit w-full"> 
               {children}

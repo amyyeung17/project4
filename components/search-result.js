@@ -9,14 +9,13 @@ const SearchResult = ({cardStyle = 'card', info}) => {
 
   return(
     <>
-      <div className={`${cardStyle} ${info.picked ? 'shadow-md' : 'shadow'}`}> 
+      <ProfileButton path={typeof(info.type) !== 'undefined' ? 'shows' : 'actors'} id={info.id} buttonStyle={`${cardStyle} shadow hover:shadow-md h-full relative`}>
         <ProfileImage siteUrl={info.image.large} />
         <ItemInfo itemStyle={itemStyle} person={info} />
-        <ProfileButton path={typeof(info.type) !== 'undefined' ? 'shows' : 'actors'} id={info.id} buttonStyle="btn--main relative" />
         {info.picked && 
           <Selected />
         }
-      </div>
+      </ProfileButton>
     </>
   )
 }
