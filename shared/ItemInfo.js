@@ -11,13 +11,15 @@ const ItemInfo = ({person, itemStyle}) => {
   }
   return(
     <>
-      <div className={`flex flex-col p-2 ${itemStyle.info}`}> 
-        <p className={`break-words leading-snug text-jet line-clamp-2 ${itemStyle.name}`}> {titleBreak()} </p>
-        {person.name.native !== null &&
-          <p className={`break-all leading-snug text-jet-light line-clamp-1 ${itemStyle.native}`}> ({person.name.native}) </p>
-        }
+      <div className={`flex flex-col p-2 max-phone:justify-center ${itemStyle.info}`}> 
         {(person.languageV2 !== null && itemStyle.lang) &&
-          <p className="leading-snug my-1 text-jet max-sm:text-sm text-sm"> {person.languageV2} </p>
+            <p className="text-triadic my-1 text-sm"> {person.languageV2} </p>
+        }
+        <p className={`break-words font-semibold text-slate-800 line-clamp-2 ${itemStyle.name}`}> 
+          {titleBreak()} 
+        </p>
+        {person.name.native !== null &&
+          <p className={`break-all  line-clamp-1 ${itemStyle.native}`}> ({person.name.native}) </p>
         }
       </div>
     

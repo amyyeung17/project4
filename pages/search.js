@@ -21,7 +21,7 @@ const Search = () => {
 
     const getTrending = async () => {
       try {
-        setStatus('Loading...')
+        setStatus(`Loading trending ${searchType ? 'voice actors' : 'shows'} ...`)
 
         const data = await fetch('/project4/api/trend', apiHeaders({method: 'POST', info: {searchType}}))
         const dataJson = await data.json()
@@ -64,36 +64,35 @@ const Search = () => {
       return results.length === 0 && status === 'Finished' ? <>No {searchType ? 'title' : 'voice actor'} results for <span className="text-amaranth-300"> <b> &apos;{searchInput}&apos; </b></span></> : status
     }
   }
- 
+ //className={`flex-col-center ${index % 2 === 0 ? 'max-sm:items-end' : 'max-sm:items-start'}`}
   return(
     <>
-      <div className="flex-col-center">
+      <div className="flex-col-center mx-auto">
         <SearchInput editInput={setInput} />
         <Toggle searchType={searchType} setSearchType={setSearchType}/>
+        <div className="grids w-full phone:max-w-[40.5rem] md:max-w-[44.5rem] lg:max-w-[59.5rem]">
           {results.length !== 0 && 
-            <div className="grids mt-1">
-              <div className="flex-col-center"> 
-                <p className="w-full whitespace-nowrap max-sm:max-w-[10rem] sm:max-w-[12rem]"> 
-                  {searchInput === '' ? <span className="text-amaranth-300"> Trending today </span>: <>Showing results for <span className="text-amaranth-300"> <b> &apos;{searchInput}&apos; </b></span> </>}
-                </p>
-              </div>
-            </div>
+              <p className="whitespace-nowrap max-sm:max-w-[10rem] sm:max-w-[12rem]"> 
+                {searchInput === '' ? <span className=""> Trending today </span>: <>Showing results for <span className="text-amaranth-300"> <b> &apos;{searchInput}&apos; </b></span> </>}
+              </p>
+            }
+        </div>
+          {(results.length !== 0 && status === 'Finished') ?
+
+            <ul className="grid-page mt-1">
+              {results.map((r, num) => {
+                return(
+                  <React.Fragment key={num}> 
+                    <li className="flex-col-center"> 
+                      <SearchResult info={r} search/>
+                    </li>
+                  </React.Fragment>
+                )
+              })}
+            </ul>
+          :
+            <StatusText status={text()}/>
           }
-        {(results.length !== 0 && status === 'Finished') ?
-          <div className="grid-page mt-1">
-            {results.map((r, num) => {
-              return(
-                <React.Fragment key={num}> 
-                  <div className="flex-col-center"> 
-                    <SearchResult info={r}/>
-                  </div>
-                </React.Fragment>
-              )
-            })}
-          </div>
-        :
-          <StatusText status={text()}/>
-        }
        </div>
     </>
   )

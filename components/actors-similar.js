@@ -5,7 +5,7 @@ const ActorsSimilar = ({info}) => {
   
   return(
     <>
-      {info.map((actor) => {
+      {info.map((actor, index) => {
         return (
           <React.Fragment key={actor[0] + ' similar'}>
             <div className="flex-col-center"> 

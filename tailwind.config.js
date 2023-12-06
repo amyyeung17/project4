@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        "phone": "465px"
+      },
       colors: {
         "primary-50": "#e5eff6",
         "primary-100": "#BFD7EA",
@@ -32,7 +35,14 @@ module.exports = {
         "jasper-300": '#953d29',
         "bittersweet": '#803332',
         "amaranth-300": '#873244',
-        "navajo-white": '#FFE0B5'
+        "navajo-white": '#FFE0B5',
+        "isabelline": '#F5EFED',
+        "cosmos-300": '#856069',
+        "cosmos-200": '#744954',
+        "cosmos": '#511C29',
+        "bone-600": '#52504a',
+        'idk': '#3c4653',
+        'triadic': '#664c79'
       }
     },
   },
