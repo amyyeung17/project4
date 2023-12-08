@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from '../../shared/card'
+import Card from '../../shared/card-og'
 
 const ActorsSimilarActors = ({info}) => {
   

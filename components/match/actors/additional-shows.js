@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { renameShowObj } from '@/lib/getShows'
 import ButtonShow from '@/shared/button-show'
-import Card from '@/shared/card'
+import Card from '@/shared/card-og'
 
 const ActorsAdditionalShows = ({info}) => {
   const [display, setDisplay] = useState(false)

@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState, useRef } from 'react'
 import { SessionContext } from '@/lib/getContext'
 import { apiHeaders } from '@/lib/getHeaders'
-import Card from '@/shared/card'
+import Card from '@/shared/card-og'
 import SearchInput from '@/components/search/input'
 import SearchToggle from '@/components/search/toggle'
 import SearchSelection from '@/components/search/selection'

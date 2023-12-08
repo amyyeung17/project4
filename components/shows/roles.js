@@ -1,4 +1,4 @@
-import Card from '../../shared/card'
+import Card from '../../shared/card-og'
 import CardExternal from '@/shared/card-external'
 
 

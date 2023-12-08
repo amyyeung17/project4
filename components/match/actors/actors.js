@@ -1,6 +1,6 @@
 import { renameShowObj } from '@/lib/getShows'
 import ActorsAdditionalShows from './additional-shows'
-import Card from '../../../shared/card'
+import Card from '../../../shared/card-og'
 import CardExternal from '@/shared/card-external'
 import LinkNative from '@/shared/link-native'
 
