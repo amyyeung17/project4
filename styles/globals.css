@@ -59,29 +59,38 @@ button {
 
 /*Card divs max-w-[12rem] flex-col*/
 .card--basic {
-  @apply flex phone:flex-col h-full relative w-full 
+  @apply flex  h-full relative w-full 
 }
 
+/*Card divs max-w-[12rem] flex-col*/
 .card {
-  @apply card--basic items-stretch phone:pb-2 rounded shrink-0 snap-start phone:min-w-[9rem] phone:max-w-[12rem] md:max-w-[13rem];
+  @apply phone:flex-col card--basic items-stretch phone:pb-2 rounded shrink-0 snap-start phone:min-w-[9rem] phone:max-w-[12rem] md:max-w-[13rem];
 }
 
 .card-result {
-  @apply card--basic min-h-[20rem] pb-2 rounded shadow shrink-0 snap-start min-w-[9rem] max-w-[11.5rem];
+  @apply card--basic flex-col phone:min-h-[20rem] pb-2 rounded shadow shrink-0 snap-start min-w-[9rem] max-w-[11.5rem];
 }
 
 .card-select {
-  @apply bg-white card--basic shadow h-fit mb-2 rounded sm:w-3/4;
+  @apply phone:flex-col bg-white card--basic shadow h-fit mb-2 rounded sm:w-3/4;
 }
 
 
 /*Grids*/
 
 .grids {
-  @apply auto-rows-fr grid phone:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 md:gap-x-8 gap-y-6 md:gap-y-8 px-3 py-2 max-sm:w-full
+  @apply auto-rows-fr grid phone:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 md:gap-x-8 gap-y-6 md:gap-y-8 px-3 py-2 w-full
 }
 .grid-page {
   @apply grids mb-4 
+}
+
+.lock {
+  @apply max-h-screen overflow-hidden
+}
+
+.unlock {
+  @apply max-h-max overflow-y-auto
 }
 
 .media-grid {

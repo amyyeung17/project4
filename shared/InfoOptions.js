@@ -9,14 +9,14 @@ const InfoOptions = ({info, type, id, routeFun}) => {
   const getSelected = () => {
     const {characters, ...cred} = info
     setSelected(s => ({...s, [type]: [...s[type], cred]}))
-    routeFun('/select')
+    routeFun('/search')
   }
   return(
     <>
       {prevPath !== '/match' &&
         <>
           {![...selected[type].map(s => s.id)].includes(parseInt(id)) ?
-            <button className="btn-add" isDisabled={selected[type].length === 2} onClick={() => getSelected()}> Select </button>
+            <button className="btn-add" isdisabled={selected[type].length === 2} onClick={() => getSelected()}> Select </button>
           :
             <button className="btn--secondary my-1 py-1" onClick={() => removeItem({index: [...selected[type].map(s => s.id)].indexOf(parseInt(id)), type, setSelected})}> Unselect </button>
           }

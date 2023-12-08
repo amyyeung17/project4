@@ -6,7 +6,6 @@ import MatchActors from '@/components/match-actors'
 import MatchSelected from '@/components/match-selected'
 import MatchShows from '@/components/match-shows'
 import Dropdown from '@/shared/Dropdown'
-import StatusText from '@/shared/StatusText'
 import { getActorsOrigin, getMatchShows }from '@/lib/getShows'
 //import testObj from '@/lib/testObj'
 
@@ -24,7 +23,7 @@ const Match = () => {
   useEffect(() => {
     setPrev('/match')
     if (selected[type].length !== 2) {
-      router.push('/select')
+      router.push('/search')
     }
     const getMatches = async() => {
       try {
@@ -73,7 +72,7 @@ const Match = () => {
             </React.Fragment>
           ))
         :
-          <StatusText status={status} />
+          <p className="text-status mt-[6rem]"> {status} </p>
         }
          <button className="btn-match mt-2" onClick={() => {router.push('/')}}> Start over </button>
       </div>

@@ -8,7 +8,7 @@ import ActorsRoles from '@/components/actors-roles'
 import ActorsSimilar from '@/components/actors-similar'
 import Dropdown from '@/shared/Dropdown'
 import InfoOptions from '@/shared/InfoOptions'
-import StatusText from '@/shared/StatusText'
+
 
 const Actors = () => {
   const router = useRouter()
@@ -41,7 +41,7 @@ const Actors = () => {
       {(typeof(info) !== 'undefined' && Object.entries(info).length !== 0 && status !== 'Loading...') ?
         <>
           <ActorsInfo info={info.staff}>
-            <InfoOptions info={info.staff} id={query.id} type="actor" routeFun={() => router.push('/select')}/>
+            <InfoOptions info={info.staff} id={query.id} type="actor" routeFun={() => router.push('/search')}/>
           </ActorsInfo>
           <p className="font-medium mt-4 mb-2 pl-3 self-start max-sm:text-xl text-2xl"> Popular Roles </p>
           <ActorsGrid info={info.staff.characters.nodes.filter(f => f.id !== 36309)}>
@@ -54,7 +54,7 @@ const Actors = () => {
           </ActorsGrid>
         </>
         :
-        <StatusText status={status}/>
+        <p className="text-status mt-[6rem]"> {status} </p>
       }
     </>
   )

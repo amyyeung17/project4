@@ -15,7 +15,7 @@ const MediaAdditional = ({info}) => {
             {info.map((i) => (
               <React.Fragment key={i.id + ' additional'}>
                 <div className={`media-grid__item ${i === 0 ? 'p-3' : 'p-2'}`} >
-                  <SearchResult cardStyle="card bg-white" info={renameShowObj({show: i})}/>
+                  <SearchResult cardStyle="card bg-white flex-col" width="w-full" info={renameShowObj({show: i})}/>
                 </div>
               </React.Fragment>
             ))}

@@ -6,7 +6,6 @@ import ShowsRoles from '@/components/shows-roles'
 import { getActorsOrigin, findActorsLang } from '@/lib/getShows'
 import Dropdown from '@/shared/Dropdown'
 import InfoOptions from '@/shared/InfoOptions'
-import StatusText from '@/shared/StatusText'
 import { SessionContext } from '@/lib/getContext'
 const Shows = () => {
   const router = useRouter()
@@ -29,6 +28,7 @@ const Shows = () => {
         setLangActors(l.map(a => ({...a, va: {...a.va, picked: selected['actor'].some(s => s.id === a.va.id)}})))
         setStatus('Finished')
       } catch (err){
+        setStatus('Error, please try again.')
         console.log(err)
       }
     }
@@ -42,7 +42,7 @@ const Shows = () => {
       {(typeof(info) !== 'undefined' && Object.entries(info).length !== 0 && status !== 'Loading...') ?
         <>
           <ShowsInfo info={info}>
-            <InfoOptions info={info} id={query.id} type="show" routeFun={() => router.push('/select')}/>
+            <InfoOptions info={info} id={query.id} type="show" routeFun={() => router.push('/search')}/>
           </ShowsInfo>
           <p className="font-bold mt-4 pl-3 self-start max-sm:text-xl text-2xl"> Cast </p>
           <Dropdown originalLang={originalLang.current} chooseLang={(l) => setLangActors(findActorsLang({lang: l, info}))}/>
@@ -57,8 +57,8 @@ const Shows = () => {
           </div>
         </>
         :
-        <StatusText status={status} />
-      }
+        <p className="text-status mt-[6rem]"> {status} </p>
+      } 
     </>
   )
 }

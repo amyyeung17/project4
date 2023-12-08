@@ -8,7 +8,6 @@ const Navbar = () => {
         <div className="container mx-auto px-3 py-2">
           <div className="flex gap-x-4 max-sm:justify-center justify-end max-sm:space-x-2 w-full">
             <Link className={linkStyle} href="/"> Home </Link>
-            <Link className={linkStyle} href="/select"> Match </Link>
             <Link className={linkStyle} href="/search"> Search </Link>
             <Link className={linkStyle} href="/info"> Info </Link>
           </div>

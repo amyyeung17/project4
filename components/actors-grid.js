@@ -1,6 +1,5 @@
 import React, { useMemo, useEffect, useState } from 'react'
 import ShowButton from '@/shared/ShowButton'
-import StatusText from '@/shared/StatusText'
 import { debounce } from 'lodash'
 
 const ActorsGrid = ({children, info}) => {
@@ -37,7 +36,7 @@ const ActorsGrid = ({children, info}) => {
           </div>
         </div>
         :
-        <StatusText status="No results" />
+         <p className="text-status mt-[6rem]"> No results. Please try again. </p>
       }
     </>
   )

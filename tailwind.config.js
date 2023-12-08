@@ -42,7 +42,10 @@ module.exports = {
         "cosmos": '#511C29',
         "bone-600": '#52504a',
         'idk': '#3c4653',
-        'triadic': '#664c79'
+        'triadic': '#473355',
+        'triadic-100': '#d2cedf',
+        'triadic-200': '#b5afc8',
+        'triadic2': '#442634'
       }
     },
   },

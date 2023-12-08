@@ -2,7 +2,7 @@ import { useRef } from 'react'
 //CHECK! - SSR and document
 const SearchInput = ({editInput, isDisabled = false}) => {
   const searchRef = useRef(null)
-  const buttonStyle = 'border-y-2 border-r-2 border-slate-300 rounded-e-lg text-slate-700 enabled:hover:bg-slate-100'
+  const buttonStyle = 'border-y-2 border-r-2 border-slate-300 rounded-e-lg text-slate-700 enabled:hover:bg-slate-100 px-4'
   const inputStyle = 'border-2 border-slate-300 hover:bg-slate-50 px-2 rounded-s-lg w-full'
 
   return(
@@ -15,7 +15,7 @@ const SearchInput = ({editInput, isDisabled = false}) => {
           ref={searchRef}
           onChange={(e) => searchRef.current.value = e.target.value} 
         />
-        <button disabled={isDisabled} className={buttonStyle} onClick={() => editInput(searchRef.current.value)}> Search </button>
+        <button disabled={isDisabled} className={buttonStyle} onClick={() => editInput(searchRef.current.value)}> <span className="bi bi-search"></span> </button>
       </div>
     </>
   )

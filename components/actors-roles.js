@@ -23,7 +23,7 @@ const ActorsRoles = ({info}) => {
           <React.Fragment key={index}>
             <div className="flex-col-center"> 
               <ProfileButton path="shows" id={first(c).id} buttonStyle="card hover:shadow-md shadow h-full relative">
-                <Card cardStyle="h-full pb-0" divStyle="h-full" info={{...c, picked: first(c).picked}} native="mx-2 mb-1">
+                <Card cardStyle="h-full max-phone:flex pb-0" divStyle="h-full w-full" info={{...c, picked: first(c).picked}} native="mx-2 mb-1">
                   <ItemInfo person={renameShowObj({show: first(c)})} itemStyle={{name: "max-sm:text-sm", native: "mb-2 text-sm max-sm:text-xs"}}/>
                 </Card>
               </ProfileButton>
