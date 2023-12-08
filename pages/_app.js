@@ -1,6 +1,6 @@
 import '@/styles/globals.css'
 import SessionProvider from '@/lib/getContext'
-import Navbar from '@/components/navbar'
+import Navbar from '@/components/navbar-og'
 import Footer from '@/components/footer'
 
 export default function App({ Component, pageProps }) {
