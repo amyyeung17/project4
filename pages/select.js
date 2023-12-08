@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import SelectItem from '@/components/select-item'
-import SelectTempItem from '@/components/select-tempItem'
 import { SessionContext } from '@/lib/getContext'
-import { removeItem } from '@/lib/getOptions'
-import Toggle from '@/shared/Toggle'
+import removeItems from '@/lib/removeItems'
+import CardSelected from '@/shared/card-selected'
+import CardSelectedTemp from '@/shared/card-selected-temp'
+import Toggle from '@/components/search/toggle'
 import Link from 'next/link'
 
 
@@ -27,13 +27,13 @@ const Select = () => {
         {selected[type].length !== 0 && selected[type].map((s, index) => {
           return (
             <React.Fragment key={s.id + 'item'}>
-              <SelectItem person={s} type={type}> 
-                <button className="btn--secondary my-1 py-1" onClick={() => removeItem({index, type, setSelected})}> Remove </button>
-              </SelectItem>
+              <CardSelected person={s} type={type}> 
+                <button className="btn--secondary-sm py-1" onClick={() => removeItems({index, type, setSelected})}> Remove </button>
+              </CardSelected>
             </React.Fragment>
           )
         })}
-        <SelectTempItem text={searchType ? 'Title' : 'Voice actor'} length={selected[type].length} navFun={() => router.push('/search')}/>
+        <CardSelectedTemp text={searchType ? 'Title' : 'Voice actor'} length={selected[type].length} navFun={() => router.push('/search')}/>
       </div>
       {selected[type].length !== 2 ?
         <button className="btn-match" disabled> Find matches </button>

@@ -1,24 +1,21 @@
-import AniListLink from '@/shared/AniListLink'
-import AniLink from '@/shared/AniLink'
-import ProfileButton from '@/shared/ProfileButton'
-import ProfileImage from '@/shared/ProfileImage'
-import Selected from '@/shared/Selected'
+import React from 'react'
+import ButtonProfile from '@/shared/button-profile'
+import CardInfo from '@/shared/card-info'
+import IconCheck from '@/shared/icon-check'
+import ImageProfile from '@/shared/image-profile'
 
-const Card = ({cardStyle = 'card shadow', children, info, height, width,  native = 'mx-2 mb-2', objectFit, divStyle = 'flex-col-center'}) => {
+const Card = ({cardStyle = 'card', info, width}) => {
+  const itemStyle = {card: 'card max-phone:flex', lang: true, link: 'self-end text-sm max-sm:text-sm', langStyle: 'text-sm', info: 'grow w-full', name: 'text-lg', native: 'text-sm'}
+
   return(
     <>
-      <div className={divStyle}> 
-        <div className={`${cardStyle}`}> 
-            <ProfileImage siteUrl={info.image.large} height={height} width={width} objectFit={objectFit} />
-            <div className="flex flex-col max-phone:justify-center w-full"> 
-            <AniLink info={info} linkStyle="a-title break-words leading-snug text-lg mx-2 mt-2" nativeStyle={native}/>
-            {children}
-            {info.picked && 
-              <Selected />  
-            }
-          </div>
-        </div>
-      </div>
+      <ButtonProfile path={typeof(info.type) !== 'undefined' ? 'shows' : 'actors'} id={info.id} buttonStyle={`${cardStyle} shadow-lg hover:shadow-2xl h-full relative bg-white w-full`}>
+        <ImageProfile siteUrl={info.image.large} width={width} />
+        <CardInfo itemStyle={itemStyle} person={info} />
+        {info.picked && 
+          <IconCheck />
+        }
+      </ButtonProfile>
     </>
   )
 }

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { getShared } from '@/lib/getActors'
+import { getActorsShared } from '@/lib/getActors'
 import { apiHeaders }from '@/lib/getHeaders'
-import ActorsInfo from '@/components/actors-info'
-import ActorsGrid from '@/components/actors-grid'
-import ActorsRoles from '@/components/actors-roles'
-import ActorsSimilar from '@/components/actors-similar'
-import Dropdown from '@/shared/Dropdown'
-import InfoOptions from '@/shared/InfoOptions'
+import Dropdown from '@/shared/dropdown'
+import InfoOptions from '@/shared/info-options'
+import ActorsGrid from '@/components/actors/grid'
+import ActorsInfo from '@/components/actors/info'
+import ActorsRoles from '@/components/actors/roles'
+import ActorsSimilarActors from '@/components/actors/similar-actors'
 
 
 const Actors = () => {
@@ -25,7 +25,7 @@ const Actors = () => {
         const dataJson = await data.json()
         const chara = dataJson.staff.characters.nodes.filter(f => f.id !== 36309)
         setInfo({...dataJson, staff: {...dataJson.staff, characters: {nodes: (chara.length > 20 ? chara.slice(0, 20): chara)}}})
-        setShared(getShared({lang: dataJson.staff.languageV2, vaData: dataJson.shared}))
+        setShared(getActorsShared({lang: dataJson.staff.languageV2, vaData: dataJson.shared}))
         setStatus('Finished')
       } catch (err){
         console.log(err)
@@ -48,9 +48,9 @@ const Actors = () => {
             <ActorsRoles />
           </ActorsGrid>
           <p className="font-medium mt-4 pl-3 self-start max-sm:text-xl text-2xl"> Similar Actors </p>
-          <Dropdown type="actor" originalLang={info.staff.languageV2} chooseLang={(l) => setShared(getShared({lang: l, vaData: info.shared}))}/>
+          <Dropdown type="actor" originalLang={info.staff.languageV2} chooseLang={(l) => setShared(getActorsShared({lang: l, vaData: info.shared}))}/>
           <ActorsGrid info={shared}>
-            <ActorsSimilar />
+            <ActorsSimilarActors />
           </ActorsGrid>
         </>
         :

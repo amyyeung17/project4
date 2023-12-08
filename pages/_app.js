@@ -1,8 +1,7 @@
 import '@/styles/globals.css'
 import SessionProvider from '@/lib/getContext'
-import Navbar from '@/components/Navbar'
-import { Lato } from 'next/font/google'
-import Script from 'next/script'
+import Navbar from '@/components/navbar'
+import Footer from '@/components/footer'
 
 export default function App({ Component, pageProps }) {
 
@@ -13,14 +12,7 @@ export default function App({ Component, pageProps }) {
         <div className="flex-col-center mt-6"> 
           <div className="container flex-col-center justify-between max-w-screen-md lg:max-w-screen-lg min-h-screen mt-0.5 px-3 py-2 overflow-x-hidden">  
             <Component {...pageProps} />
-            <div className="flex-col-center mt-6 py-2"> 
-              <p> Created with <a href="https://anilist.gitbook.io/anilist-apiv2-docs/" className="decoration-slate-700 underline" target="_blank"> AniList API </a></p>
-              <div className="flex mt-3 space-x-10">
-                <a href="" target="_blank"> <span className="bi bi-github"></span></a>
-                <a href="https://www.ayeung.me" target="_blank"> <span className="bi bi-folder-fill"></span></a>
-                <a href="mailto:amyyeung17@gmail.com" target="_blank"> <span className="bi bi-envelope-fill"></span></a>
-              </div>
-            </div>
+            <Footer />
           </div>
         </div>
       </SessionProvider>

@@ -28,6 +28,10 @@ a:hover + p.break-all {
   @apply underline 
 }
 
+a.anilink:hover > img.aniimage {
+  @apply opacity-80
+}
+
 /*Buttons*/
 button {
   @apply disabled:opacity-30 disabled:hover:opacity-30 px-3 py-2 w-fit
@@ -38,7 +42,11 @@ button {
 }
 
 .btn--secondary {
-  @apply bg-white border-2 border-slate-500 hover:bg-slate-100 py-1 px-2 rounded-lg text-slate-700 text-sm 
+  @apply bg-white border-2 border-slate-500 hover:bg-slate-100 py-1 px-2 rounded-lg text-slate-700  
+}
+
+.btn--secondary-sm {
+  @apply btn--secondary text-sm 
 }
 
 .btn--secondary-0 {
@@ -49,20 +57,23 @@ button {
   @apply border-2 border-slate-700 h-fit btn--main my-1 rounded-lg px-5 py-1 text-sm 
 }
 
+.btn-back {
+  @apply btn--secondary text-xl max-phone:w-full px-5 py-1.5 my-2 max-sm:min-w-[9.375rem] sm:min-w-[8rem]
+}
+
 .btn-match {
-  @apply btn--main h-fit my-2 px-5 py-1.5 relative rounded-lg text-xl
+  @apply btn--main h-fit my-2 px-5 py-1.5 relative rounded-lg text-xl max-sm:min-w-[9.375rem]  sm:min-w-[8rem]
 }
 
 .btn-profile {
   @apply h-fit px-3 py-1.5 mx-2 self-center text-center text-sm w-1/2
 }
 
-/*Card divs max-w-[12rem] flex-col*/
+
 .card--basic {
   @apply flex  h-full relative w-full 
 }
 
-/*Card divs max-w-[12rem] flex-col*/
 .card {
   @apply phone:flex-col card--basic items-stretch phone:pb-2 rounded shrink-0 snap-start phone:min-w-[9rem] phone:max-w-[12rem] md:max-w-[13rem];
 }
@@ -77,20 +88,12 @@ button {
 
 
 /*Grids*/
-
 .grids {
   @apply auto-rows-fr grid phone:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 md:gap-x-8 gap-y-6 md:gap-y-8 px-3 py-2 w-full
 }
+
 .grid-page {
   @apply grids mb-4 
-}
-
-.lock {
-  @apply max-h-screen overflow-hidden
-}
-
-.unlock {
-  @apply max-h-max overflow-y-auto
 }
 
 .media-grid {

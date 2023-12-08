@@ -1,7 +1,6 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { trendActorQuery, trendShowQuery } from '@/lib/getQuery'
 import { fetchHeaders } from '@/lib/getHeaders'
-import { trendingActors } from '@/lib/getActors'
+import { getTrendActors } from '@/lib/getTrend'
 import { renameShowObj } from '@/lib/getShows'
 
 export default async function trend(req, res) {
@@ -18,7 +17,7 @@ export default async function trend(req, res) {
       if (searchType) {
         res.status(200).json({data: trendData.data.Page.media.map(s => renameShowObj({show: s}))})
       } else {
-        res.status(200).json({data: trendingActors({media: trendData.data.Page.media})})
+        res.status(200).json({data: getTrendActors({media: trendData.data.Page.media})})
       }
 
       break

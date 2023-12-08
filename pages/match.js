@@ -2,12 +2,11 @@ import React, { useContext, useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/router'
 import { apiHeaders }from '@/lib/getHeaders'
 import { SessionContext } from '@/lib/getContext'
-import MatchActors from '@/components/match-actors'
-import MatchSelected from '@/components/match-selected'
-import MatchShows from '@/components/match-shows'
-import Dropdown from '@/shared/Dropdown'
-import { getActorsOrigin, getMatchShows }from '@/lib/getShows'
-//import testObj from '@/lib/testObj'
+import { getMatchShows }from '@/lib/getMatch'
+import Dropdown from '@/shared/dropdown'
+import MatchActors from '@/components/match/actors/actors'
+import MatchSelection from '@/components/match/selection'
+import MatchShows from '@/components/match/shows'
 
 const Match = () => {
   const [selected, _] = useContext(SessionContext).choices
@@ -32,9 +31,9 @@ const Match = () => {
         const dataJson = await data.json()
 
         if (searchType) {
-          setInfo(dataJson)
-          originalLang.current = getActorsOrigin({origin: dataJson.first.countryOfOrigin, chara: dataJson.first.characters})
-          const matchedShows = getMatchShows({lang: originalLang.current, info: dataJson})
+          setInfo(dataJson.data)
+          originalLang.current = dataJson.originalLang
+          const matchedShows = getMatchShows({lang: originalLang.current, info: dataJson.data})
           setResults(matchedShows)
           if (matchedShows.length === 0) {
             setStatus('No results')
@@ -57,9 +56,9 @@ const Match = () => {
     <>
       <div className="flex-col-center h-full mb-4 space-y-4"> 
         <p className="my-2 text-status"> Shared {searchType ? 'Voice Actors' : 'Shows'} and Roles {searchType ? 'in' : 'for'} </p>
-        {selected[type].length === 2 && <MatchSelected selected={selected} type={type} /> }
+        {selected[type].length === 2 && <MatchSelection selected={selected} type={type} /> }
         {(searchType && status !== 'Loading...') && 
-          <Dropdown originalLang={originalLang.current} chooseLang={(l) => setResults(getMatchShow({lang: l, info}))} />
+          <Dropdown originalLang={originalLang.current} chooseLang={(l) => setResults(getMatchShows({lang: l, info}))} />
         }
         {(typeof(results) !== 'undefined' && results.length !== 0) ?
           results.map((r, index) => (
@@ -74,7 +73,10 @@ const Match = () => {
         :
           <p className="text-status mt-[6rem]"> {status} </p>
         }
-         <button className="btn-match mt-2" onClick={() => {router.push('/')}}> Start over </button>
+          <div className="pt-8 pb-4 px-3 flex max-sm:flex-col max-sm:items-center sm:justify-evenly  sm:w-3/5"> 
+            <button className="btn-back" onClick={() => router.push('/search')}> Back </button>
+            <button className="btn-match mt-2" onClick={() => {router.push('/')}}> Start over </button>
+         </div>
       </div>
      
     </>
