@@ -5,7 +5,7 @@ const Footer = () => {
   return(
     <>
       <div className=" flex items-center justify-between mt-16 relative w-full py-4 px-6"> 
-        <div className="flex items-center space-x-1"> 
+        <div className="max-phone:flex-col flex items-center space-x-1"> 
           <p> Created with </p> 
           <a href="https://anilist.gitbook.io/anilist-apiv2-docs/" className="anilink flex decoration-slate-700 underline" target="_blank"> 
             <Image alt="AniList Logo" src={aniListLogo} style={{width: '25px'}} className="aniimage mr-1"/> 
