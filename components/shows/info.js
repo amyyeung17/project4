@@ -18,10 +18,10 @@ const ShowsInfo = ({children, info}) => {
           {info.synonyms !== null && 
             <span className="font-normal max-sm:text-base text-xl text-slate-500 line-clamp-2 mb-2"> Also known as: {info.synonyms.map((c, index) => c + (index !== info.synonyms.length - 1 ? ', ' : ''))} </span>
           }
-          <p className="phone:text-lg font-bold"> <span className="font-normal text-slate-600"> Country of Origin:  </span> {info.countryOfOrigin} </p>
-          <p className="phone:text-lg font-bold"> <span className="font-normal text-slate-600"> Number of episodes: </span> {info.episodes} </p>
-          <p className="phone:text-lg font-bold"> <span className="font-normal text-slate-600"> Airing Time: </span> {getShowsDate({format: info.format, start: info.startDate})} </p>
-          <p className="phone:text-lg font-bold"> <span className="font-normal text-slate-600"> Format: </span> {info.format} </p>
+          <p className="phone:text-lg font-medium"> <span className="font-normal text-jet-light"> Country of Origin:  </span> {info.countryOfOrigin} </p>
+          <p className="phone:text-lg font-medium"> <span className="font-normal text-jet-light"> Number of episodes: </span> {info.episodes} </p>
+          <p className="phone:text-lg font-medium"> <span className="font-normal text-jet-light"> Airing Time: </span> {getShowsDate({format: info.format, start: info.startDate})} </p>
+          <p className="phone:text-lg font-medium"> <span className="font-normal text-jet-light"> Format: </span> {info.format} </p>
           <p className="max-sm:hidden text-lg"> <span className="text-zinc-500 font-medium"> Genres: </span> {info.genres.map((c, index) => c + (index !== info.genres.length - 1 ? ', ' : ''))} </p>
           <div className="flex self-end justify-end grow items-end max-sm:my-1 sm:w-fit w-full"> 
             {children}
