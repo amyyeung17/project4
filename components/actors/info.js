@@ -39,7 +39,7 @@ const ActorsInfo = ({children, info}) => {
             <p className="max-phone:flex max-phone:flex-col max-sm:text-2xl text-4xl w-fit"> 
               {info.name.full} 
               {info.name.native !== null && 
-                <span className="whitespace-nowrap max-sm:text-xl text-3xl text-slate-600"> ({info.name.native}) </span>
+                <span className="whitespace-nowrap max-sm:text-xl text-3xl text-jet-light"> ({info.name.native}) </span>
               } 
             </p> 
             <LinkAnilist siteUrl={info.siteUrl} hidden linkStyle="self-center text-xl max-sm:text-base" arrowStyle="max-sm:text-base text-lg"/>
@@ -48,14 +48,14 @@ const ActorsInfo = ({children, info}) => {
           {Object.entries({'age' : 'Age: ', 'homeTown' : 'Hometown: ', 'yearsActive': 'Years Active: '}).map(([key, val]) => (
               <React.Fragment key={key}> 
                 {(!(info[key] === null || (Array.isArray(info[key]) && info[key].length === 0))) &&
-                <p className="phone:text-lg font-bold"> <span className="font-normal text-slate-600"> {val} </span> {info[key]} </p>}
+                <p className="phone:text-lg font-medium"> <span className="font-normal text-jet-light"> {val} </span> {info[key]} </p>}
               </React.Fragment>
           ))}
-          <p className="max-sm:hidden phone:text-lg text-slate-600"> Featured in: </p>
+          <p className="max-sm:hidden phone:text-lg text-jet-light"> Featured in: </p>
           <div className="max-sm:hidden sm:w-4/5">
             {charasFilter.map((c, index) => (
               <React.Fragment key={index}>
-                <LinkNative info={renameShowObj({show: c})} linkStyle="a-title text-start max-sm:text-sm my-1" native="mx-2 mb-2"/>
+                <LinkNative info={renameShowObj({show: c})} linkStyle="a-title text-start max-sm:text-sm my-1" nativeStyle="mb-1"/>
               </React.Fragment>
             ))}
           </div>

@@ -24,7 +24,7 @@ const ActorsRoles = ({info}) => {
             <div className="flex-col-center"> 
               
                 <CardExternal cardStyle="card shadow h-full relative max-phone:flex pb-0" divStyle="flex-col-center h-full w-full" info={{...c, picked: first(c).picked}} native="mx-2 mb-1">
-                  <CardInfo person={renameShowObj({show: first(c)})} itemStyle={{name: "max-sm:text-sm", native: "mb-2 text-sm max-sm:text-xs"}}/>
+                  <CardInfo person={renameShowObj({show: first(c)})} itemStyle={{name: "max-sm:text-sm", native: "mb-2 text-sm"}}/>
                 </CardExternal>
             </div>
           </React.Fragment>
