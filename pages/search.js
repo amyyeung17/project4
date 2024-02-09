@@ -70,7 +70,6 @@ const Search = () => {
               <>
                 <ul className="grid-page mt-1">
                   {results.map((r, num) => {
-                    console.log(prevAction.current === action)
                     return(
                       <React.Fragment key={num}> 
                         <li className="flex-col-center"> 

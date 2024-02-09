@@ -12,7 +12,7 @@ export default async function actors(req, res) {
         const throttled = throttledQueue(5, 1000, true)
         const response = await fetch('https://graphql.anilist.co', fetchHeaders({query: actorQuery, variables: {id: query}}))
         const responseData = await response.json()
-        const filteredItems = responseData.data.Staff.characters.nodes.map(n => [...n.media.nodes.filter(m => !['MUSIC', 'MANGA', 'NOVEL', 'ONE_SHOT'].includes(m.format))][0]).slice(0, 15)
+        const filteredItems = responseData.data.Staff.characters.nodes.map(n => [...n.media.nodes.filter(m => !['MUSIC', 'MANGA', 'NOVEL', 'ONE_SHOT'].includes(m.format))][0]).slice(0, 10)
           const getCharas = async({id}) => {
             const charaResponse = await fetch('https://graphql.anilist.co', fetchHeaders({query: similarQuery, variables: {id}}))
             const charaJson = await charaResponse.json()
