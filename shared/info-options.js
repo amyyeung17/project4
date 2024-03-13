@@ -16,9 +16,9 @@ const InfoOptions = ({info, type, id, routeFun}) => {
       {prevPath !== '/match' &&
         <>
           {![...selected[type].map(s => s.id)].includes(parseInt(id)) ?
-            <button className="btn-add" isdisabled={(selected[type].length === 2).toString()} onClick={() => getSelected()}> Select </button>
+            <button aria-label="Select for match" className="btn-add" isdisabled={(selected[type].length === 2).toString()} onClick={() => getSelected()}> Select </button>
           :
-            <button className="btn--secondary-sm my-1 py-1" onClick={() => removeItems({index: [...selected[type].map(s => s.id)].indexOf(parseInt(id)), type, setSelected})}> Unselect </button>
+            <button aria-label="Unselect for match" className="btn--secondary-sm my-1 py-1" onClick={() => removeItems({index: [...selected[type].map(s => s.id)].indexOf(parseInt(id)), type, setSelected})}> Unselect </button>
           }
         </>
       }
