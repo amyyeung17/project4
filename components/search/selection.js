@@ -15,7 +15,13 @@ const SearchSelection = ({searchType, selected, setSelected}) => {
           return (
             <React.Fragment key={s.id + 'item'}>
               <CardSelected person={s} type={type}> 
-                <button className="btn--secondary-sm mt-2 mb-4 py-1" onClick={() => removeItems({index, type, setSelected})}> Remove </button>
+                <button 
+                  aria-label="Unselect for match"
+                  className="btn--secondary-sm mt-2 mb-4 py-1" 
+                  onClick={() => removeItems({index, type, setSelected})}
+                > 
+                  Remove 
+                </button>
               </CardSelected>
             </React.Fragment>
           )
@@ -23,7 +29,7 @@ const SearchSelection = ({searchType, selected, setSelected}) => {
         <CardSelectedTemp text={searchType ? 'Title' : 'Voice actor'} length={selected[type].length} />
       </div>
       {selected[type].length !== 2 ?
-        <button className="btn-match" disabled> Find matches </button>
+        <button aria-label="Disabled button" className="btn-match" disabled> Find matches </button>
         :
         <Link className="btn-match" href="/match"> Find matches </Link> 
       }

@@ -74,8 +74,8 @@ const Match = () => {
           <p className="text-status mt-[6rem]"> {status} </p>
         }
           <div className="pt-8 pb-4 px-3 flex max-sm:flex-col max-sm:items-center sm:justify-evenly  sm:w-3/5"> 
-            <button className="btn-back" onClick={() => router.push('/search')}> Back </button>
-            <button className="btn-match mt-2" onClick={() => {router.push('/')}}> Start over </button>
+            <button aria-label="Back to search" className="btn-back" onClick={() => router.push('/search')}> Back </button>
+            <button aria-label="Start over" className="btn-match mt-2" onClick={() => {router.push('/')}}> Start over </button>
          </div>
       </div>
      

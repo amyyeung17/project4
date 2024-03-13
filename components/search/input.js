@@ -9,14 +9,23 @@ const SearchInput = ({editInput, isDisabled = false}) => {
     <>
       <div className="flex my-2 rounded-lg shadow w-full sm:w-3/4" >
         <input 
+          aria-required="true"
           className={inputStyle}
           disabled={isDisabled} 
           placeholder="Start search with at least the first 3 letters..."
           ref={searchRef}
+          type="text"
           onChange={(e) => searchRef.current.value = e.target.value} 
           onKeyDown={(e) => (e.key === 'Enter' && editInput(searchRef.current.value))}
         />
-        <button disabled={isDisabled} className={buttonStyle} onClick={() => editInput(searchRef.current.value)}> <span className="bi bi-search"></span> </button>
+        <button 
+          aria-label="Search button"
+          className={buttonStyle}
+          disabled={isDisabled}  
+          onClick={() => editInput(searchRef.current.value)}
+        > 
+          <span className="bi bi-search"></span> 
+        </button>
       </div>
     </>
   )
