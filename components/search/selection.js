@@ -14,7 +14,7 @@ const SearchSelection = ({searchType, selected, setSelected}) => {
         {selected[type].length !== 0 && selected[type].map((s, index) => {
           return (
             <React.Fragment key={s.id + 'item'}>
-              <CardSelected person={s} type={type}> 
+              <CardSelected person={s}> 
                 <button 
                   aria-label="Unselect for match"
                   className="btn--secondary-sm mt-2 mb-4 py-1" 

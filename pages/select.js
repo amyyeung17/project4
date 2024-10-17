@@ -27,7 +27,7 @@ const Select = () => {
         {selected[type].length !== 0 && selected[type].map((s, index) => {
           return (
             <React.Fragment key={s.id + 'item'}>
-              <CardSelected person={s} type={type}> 
+              <CardSelected person={s}> 
                 <button className="btn--secondary-sm py-1" onClick={() => removeItems({index, type, setSelected})}> Remove </button>
               </CardSelected>
             </React.Fragment>

@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { renameShowObj } from '@/lib/getShows'
 import { SessionContext } from '@/lib/getContext'
-import ButtonProfile from '@/shared/button-profile'
 import CardExternal from '@/shared/card-external'
 import CardInfo from '@/shared/card-info'
 

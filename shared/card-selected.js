@@ -1,11 +1,10 @@
 
-import ButtonProfile from '@/shared/button-profile'
 import CardInfo from '@/shared/card-info'
 import ImageProfile from '@/shared/image-profile'
 import LinkAnilist from '@/shared/link-anilist'
 
 
-const CardSelected = ({children, type,  person}) => {
+const CardSelected = ({children, person}) => {
   const itemStyle = {card: 'card-select pb-2 max-phone:justify-center', lang: true, link: 'max-phone:absolute bottom-1 self-end text-sm', langStyle: 'text-lg max-phone:text-sm', info: 'h-full grow phone:h-fit', name: 'text-2xl max-sm:text-xl max-phone:text-lg', native: 'text-xl max-sm:text-base max-phone:text-sm'}
 
   return(
