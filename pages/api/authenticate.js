@@ -1,4 +1,4 @@
-import headers from '@/lib/getHeaders'
+import { apiHeaders }from '@/lib/getHeaders'
 
 export default async function authenticate(req, res) {
   const { method } = req
@@ -6,7 +6,7 @@ export default async function authenticate(req, res) {
   switch(method) {
     case 'GET':
       try {
-        const response = await fetch(`https://id.twitch.tv/oauth2/token?client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}&client_secret=${process.env.NEXT_PUBLIC_CLIENT_SECRET}&grant_type=${process.env.NEXT_PUBLIC_GRANT_TYPE}`, {...headers({method: 'POST'})})
+        const response = await fetch(`https://id.twitch.tv/oauth2/token?client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}&client_secret=${process.env.NEXT_PUBLIC_CLIENT_SECRET}&grant_type=${process.env.NEXT_PUBLIC_GRANT_TYPE}`, {...apiHeaders({method: 'POST'})})
         if (!response.ok) {
           throw new Error('Fetch error')
         }
