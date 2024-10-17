@@ -15,6 +15,11 @@
 # production
 /build
 
+# extra files
+/old
+/lib/test*
+notes.md
+
 # misc
 .DS_Store
 *.pem
