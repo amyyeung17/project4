@@ -19,6 +19,7 @@
 /old
 /lib/test*
 notes.md
+/shared/button-profile.js
 
 # misc
 .DS_Store
