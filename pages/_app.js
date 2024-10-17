@@ -7,10 +7,11 @@ import Footer from '@/components/footer'
 
 export default function App({ Component, pageProps }) {
   const { route } = useRouter()
+  const titleText = (route !== '/' ? route.charAt(1).toUpperCase() + route.slice(2) : 'Voice Actor Match')
   return (
     <>
       <Head>
-        <title> { route !== '/' ? route.charAt(1).toUpperCase() + route.slice(2) : 'Voice Actor Match' } </title>
+        <title>{ titleText }</title>
         <meta name="description" content="Discover new work and voice actors through your favorite voice actors" />
       </Head>
       <SessionProvider>

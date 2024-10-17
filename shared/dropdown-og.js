@@ -16,7 +16,7 @@ const Dropdown = ({originalLang, chooseLang, type = 'show'}) => {
   
   return(
     <>
-      <div class="flex justify-end w-full"> 
+      <div className="flex justify-end w-full"> 
       <Listbox value={currentLang} onChange={(e) => {chooseLang(e); setCurrent(e)}}>
         <div className="relative mr-3 self-end w-36 sm:w-40 mb-4"> 
           <Listbox.Button className="flex justify-between border-2 border-slate-500 relative focus-within:ring w-full cursor-default rounded-lg bg-white max-sm:py-1 py-1.5 pl-3 text-slate-700 text-sm shadow"> 
